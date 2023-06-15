@@ -3,11 +3,11 @@ class RatingsController < ApplicationController
   before_action :set_user, only: [:index, :new, :create, :show, :edit]
 
   def index
-    @rating = Rating.all
+    @ratings = Rating.all
   end
 
   def show
-    @rating = Rating.find(@rating.movie_id)
+    @rating = Rating.find(params[:id])
   end
 
   def new
