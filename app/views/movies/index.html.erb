@@ -1,22 +1,31 @@
-<div class="container mt-3">
-    <div class="row d-flex">
-      <div class="px-4 py-1 my-3 text-center">
+<div class="m-5 text-center">
         <h1 class="display-5 fw-bold">¡Bienvenido!</h1>
         <p>¿Que pelicula deseas investigar?</p>
       </div>
-      <% @movies.each do |movie| %>
-        <div class="col-4 mb-3">
-          <div class="card w-18">
-            <div class="zoom-effect">
-              <% if movie.photo.attached? %>
-                <%= cl_image_tag movie.photo.key, height: 300, width: 400, crop: :fill, class:"card-img-top"%>
-              <% end %>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title"><%= movie.title %> </h5>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
+<div class="container navbar mt-5">
+  <ul class="list-group list-group-horizontal gap-0">
+    <a><li class="list-group-item border-0 p-2">Todas</li></a>
+    <a><li class="list-group-item border-0 p-2">Películas</li></a>
+    <a><li class="list-group-item border-0 p-2">Series</li></a>
+  </ul>
+  <ul class="list-group list-group-horizontal">
+  <li class="list-group-item border-0 p-2">Año<i class="fa-duotone fa-chevron-down"></i></li>
+  <li class="list-group-item border-0 p-2">Género</li>
+  <li class="list-group-item border-0 p-2">Plataforma</li>
+</ul>
+
 </div>
+<div class="container d-flex justify-content-center flex-wrap">
+  <% @movies.each do |movie| %>
+    <div class="card-trip m-3">
+      <% if movie.photo.attached? %>
+      <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
+      <% end %>
+      <div class="card-trip-infos col">
+        <div>
+          <h2><%= movie.title %></h2>
+          <p>Short description here!</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
