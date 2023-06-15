@@ -6,7 +6,7 @@
       </div>
       <% @movies.each do |movie| %>
         <div class="col-4 mb-3">
-          <div class="card">
+          <div class="card w-18">
             <div class="zoom-effect">
               <% if movie.photo.attached? %>
                 <%= cl_image_tag movie.photo.key, height: 300, width: 400, crop: :fill, class:"card-img-top"%>
