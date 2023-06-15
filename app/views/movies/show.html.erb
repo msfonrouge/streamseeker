@@ -1,2 +1,16 @@
-<h1>hola desde show movie</h1>
-<%= @movie.title %>
+<div class="container mt-3">
+  <div class="row">
+    <div class="card-product">
+    <div class="col-md-4">
+      <%= cl_image_tag @movie.photo.key %>
+    </div>
+      <div class="col-md-8">
+        <div class="card-product-infos">
+          <h2><%= @movie.title %></h2>
+          <p><%= @movie.description %></p>
+          <p><%= @movie.platform %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

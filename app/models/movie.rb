@@ -3,7 +3,6 @@ class Movie < ApplicationRecord
   has_many :ratings, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :users, through: :ratings
-  has_many :users, through: :reviews
   has_many :markers, dependent: :destroy
   has_many :watchlists, through: :markers, dependent: :destroy
 end
