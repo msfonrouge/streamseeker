@@ -52,7 +52,7 @@ end
   end
 
   def rating_params
-    params.require(:rating).permit(:start_date, :end_date, :status, :yacht_id, :user_id)
+    params.require(:rating).permit(:rate, :movie_id, :user_id)
   end
 
   def set_user
