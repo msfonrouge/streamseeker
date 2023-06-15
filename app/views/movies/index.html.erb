@@ -1,3 +1,7 @@
+<div class="m-5 text-center">
+        <h1 class="display-5 fw-bold">¡Bienvenido!</h1>
+        <p>¿Que pelicula deseas investigar?</p>
+      </div>
 <div class="container navbar mt-5">
   <ul class="list-group list-group-horizontal gap-0">
     <a><li class="list-group-item border-0 p-2">Todas</li></a>
@@ -14,7 +18,9 @@
 <div class="container d-flex justify-content-center flex-wrap">
   <% @movies.each do |movie| %>
     <div class="card-trip m-3">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <% if movie.photo.attached? %>
+      <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
+      <% end %>
       <div class="card-trip-infos col">
         <div>
           <h2><%= movie.title %></h2>
@@ -23,4 +29,3 @@
       </div>
     </div>
   <% end %>
-</div>
