@@ -40,7 +40,7 @@ class RatingsController < ApplicationController
   end
 
   def destroy
-    @brating.destroy
+    @rating.destroy
     redirect_to ratings_path, status: :see_other
   end
 
