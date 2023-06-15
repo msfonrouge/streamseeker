@@ -8,9 +8,14 @@ require "open-uri"
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-User.destroy_all
+Marker.destroy_all
+Watchlist.destroy_all
+Review.destroy_all
+Rating.destroy_all
 Movie.destroy_all
-# Booking.destroy_all
+User.destroy_all
+
+
 puts("Seed MS..")
 
 movie1 =
