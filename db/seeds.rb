@@ -626,7 +626,7 @@ guardianes = Movie.create(
   genre: "Ciencia ficcion",
   platform: "Disney+",
 )
-photo_guardianes = URI.open("https://i0.wp.com/aquitedateamos.cl/wp-content/uploads/2023/05/unnamed-3.jpg?fit=570%2C814&ssl=1")
+photo_guardianes = URI.open("https://pics.filmaffinity.com/guardians_of_the_galaxy_vol_3-466272381-large.jpg")
 guardianes.photo.attach(io: photo_guardianes, filename: "guardianes.png", content_type: "image/png")
 guardianes.save!
 
