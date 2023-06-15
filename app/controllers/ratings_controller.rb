@@ -1,14 +1,13 @@
 class RatingsController < ApplicationController
-end
   before_action :set_ratings, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:index, :new, :create, :show, :edit]
 
   def index
-    @rating = Rating.all
+    @ratings = Rating.all
   end
 
   def show
-    @rating = Rating.find(@rating.movie_id)
+    @rating = Rating.find(params[:id])
   end
 
   def new
@@ -41,7 +40,7 @@ end
   end
 
   def destroy
-    @brating.destroy
+    @rating.destroy
     redirect_to ratings_path, status: :see_other
   end
 
