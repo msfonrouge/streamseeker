@@ -1,0 +1,22 @@
+<div class="container mt-3">
+    <div class="row d-flex">
+      <div class="px-4 py-1 my-3 text-center">
+        <h1 class="display-5 fw-bold">¡Bienvenido!</h1>
+        <p>¿Que pelicula deseas investigar?</p>
+      </div>
+      <% @movies.each do |movie| %>
+        <div class="col-4 mb-3">
+          <div class="card">
+            <div class="zoom-effect">
+              <% if movie.photo.attached? %>
+                <%= cl_image_tag movie.photo.key, height: 300, width: 400, crop: :fill, class:"card-img-top"%>
+              <% end %>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><%= movie.title %> </h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+</div>
