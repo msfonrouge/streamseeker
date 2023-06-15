@@ -1,5 +1,4 @@
 class RatingsController < ApplicationController
-end
   before_action :set_ratings, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:index, :new, :create, :show, :edit]
 

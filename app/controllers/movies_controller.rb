@@ -1,11 +1,9 @@
 class MoviesController < ApplicationController
-end
+  def index
+    @movies = Movie.all
+  end
 
-def index
-  @movies = Movie.all
+  def show
+    @movie = Movie.find(params[:id])
+  end
 end
-
-def show
-  @movie = Movie.find(params[:id])
-end
-
