@@ -1,5 +1,26 @@
-<% @movies.each do |movie| %>
-  <ul>
-    <li><%= movie.title %></li>
+<div class="container navbar mt-5">
+  <ul class="list-group list-group-horizontal gap-0">
+    <a><li class="list-group-item border-0 p-2">Todas</li></a>
+    <a><li class="list-group-item border-0 p-2">Películas</li></a>
+    <a><li class="list-group-item border-0 p-2">Series</li></a>
   </ul>
-<% end %>
+  <ul class="list-group list-group-horizontal">
+  <li class="list-group-item border-0 p-2">Año<i class="fa-duotone fa-chevron-down"></i></li>
+  <li class="list-group-item border-0 p-2">Género</li>
+  <li class="list-group-item border-0 p-2">Plataforma</li>
+</ul>
+
+</div>
+<div class="container d-flex justify-content-center flex-wrap">
+  <% @movies.each do |movie| %>
+    <div class="card-trip m-3">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-trip-infos col">
+        <div>
+          <h2><%= movie.title %></h2>
+          <p>Short description here!</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
