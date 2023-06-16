@@ -1,0 +1,7 @@
+<p>
+  <% @watchlists.each do |watchlist| %>
+  <li><%= link_to "#{watchlist.title}", watchlist_path(watchlist) %></li>
+  <% end %>
+</p>
+
+<p><%= link_to "New Watchlist", new_watchlist_path %></p>

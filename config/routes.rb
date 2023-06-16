@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
     resources :markers
   end
-  resources :watchlist
+  resources :watchlists
 end
