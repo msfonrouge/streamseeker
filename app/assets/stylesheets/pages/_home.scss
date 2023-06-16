@@ -1,3 +1,10 @@
-body {
-  background: #603434;
+// Specific CSS for your home-page
+#bg-image {
+    background: url("assets/pulp-fiction.jpg") no-repeat fixed center;
+    //cross-fade(url("assets/pulp-fiction.jpg"), url(truman-show.png));
+    background-size: cover;
+}
+
+.full-height {
+    height: 100vh;
 }
