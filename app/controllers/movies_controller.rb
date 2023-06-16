@@ -9,6 +9,8 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @rating = Rating.new
   end
 
   private
