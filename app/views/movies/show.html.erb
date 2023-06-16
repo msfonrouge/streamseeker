@@ -14,3 +14,17 @@
     </div>
   </div>
 </div>
+
+<% @movie.reviews.each do |review| %>
+  <p><%= review.content %> by <%= review.user %></p>
+<% end %>
+
+<%= simple_form_for([@movie, @review]) do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rate %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= simple_form_for([@movie, @rating]) do |f| %>
+  <%= f.button :submit %>
+<% end %>

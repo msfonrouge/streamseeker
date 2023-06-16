@@ -6,21 +6,20 @@ class RatingsController < ApplicationController
     @ratings = Rating.all
   end
 
-  def show
-    @rating = Rating.find(params[:id])
-  end
+  # def show
+  #   @rating = Rating.find(params[:id])
+  # end
 
-  def new
-    @rating = Rating.new
-    @movie = Movie.find(params[:movie_id])
-  end
+  # def new
+  #   @rating = Rating.new
+  #   @movie = Movie.find(params[:movie_id])
+  # end
 
   def create
     @rating = Rating.new(rating_params)
     @movie = Movie.find(params[:movie_id])
     @rating.movie_id = @movie.id
     @rating.user_id = @user.id
-    @movie.status = true
     if @rating.save && @movie.save
       redirect_to rating_path(@rating.id, movie_id: @movie.id)
     else
@@ -51,7 +50,7 @@ class RatingsController < ApplicationController
   end
 
   def rating_params
-    params.require(:rating).permit(:start_date, :end_date, :status, :yacht_id, :user_id)
+    params.require(:rating).permit(:rate, :movie_id, :user_id)
   end
 
   def set_user
