@@ -20,6 +20,7 @@
 </div>
 <div class="container d-flex justify-content-center flex-wrap">
   <% @movies.each do |movie| %>
+  <%= link_to movie_path(movie) do %>
   <div class="card-trip m-3">
     <% if movie.photo.attached? %> <%= cl_image_tag movie.photo.key, height:
     300, width: 200, crop: :scale, class:"card-img-top"%> <% end %>
@@ -30,5 +31,6 @@
       </div>
     </div>
   </div>
+  <% end %>
   <% end %>
 </div>
