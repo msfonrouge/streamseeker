@@ -13,30 +13,14 @@
         </div>
       <% end %>
     </div>
-    <div class="genres d-flex flex-wrap " style="row-gap: 5px; column-gap: 15px; opacity: 1; transform: none;">
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Action</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Adventure</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Animation</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Comedy</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Crime</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Documentary</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Drama</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Family</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Fantasy</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">History</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Horror</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Music</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Mystery</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Romance</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Science Fiction</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">TV Movie</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Thriller</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">War</span></h3>
-      <h3 style="opacity: 1; transform: none;"><span id="badge" class="badge bg-dark" style="cursor: pointer;">Western</span></h3>
-      <%= button_tag :submit, class: 'btn btn-primary', value: 'Search' %>
-      <%= button_tag :submit, class: 'btn btn-primary', value: 'Search' %>
-      <%= button_tag :submit, class: 'btn btn-primary', value: 'Search' %>
-      <%= button_tag :submit, class: 'btn btn-primary', value: 'Search' %>
+    <div class="">
+      <ul class=" d-flex  flex-wrap justify-content-center gap-3">
+        <% @genres.each do |genre| %>
+          <%= link_to movies_path, class: 'text-white' do %>
+            <%= button_tag genre, class: 'btn bg-dark text-white' %>
+          <% end %>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

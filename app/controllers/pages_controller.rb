@@ -4,5 +4,6 @@ class PagesController < ApplicationController
   def home
     @user = current_user
     @movies = Movie.order("RANDOM()").limit(10)
+    @genres = Movie.distinct.pluck(:genre)
   end
 end
