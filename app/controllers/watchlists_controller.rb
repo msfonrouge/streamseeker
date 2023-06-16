@@ -14,6 +14,7 @@ class WatchlistsController < ApplicationController
 
   def create
     @watchlist = Watchlist.new(watchlist_params)
+    @watchlist.user = current_user
     if @watchlist.save
       redirect_to watchlists_path,
       notice: "The watchlist has been created successfully"
