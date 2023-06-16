@@ -1,7 +1,7 @@
 class WatchlistsController < ApplicationController
-
+  before_action :set_user, only: [:index]
   def index
-    @watchlists = Watchlist.all
+    @watchlists = @user.watchlists
   end
 
   def show
@@ -16,7 +16,7 @@ class WatchlistsController < ApplicationController
     @watchlist = Watchlist.new(watchlist_params)
     if @watchlist.save
       redirect_to watchlists_path,
-      notice: "The watchlist has been created successfully"
+                  notice: "The watchlist has been created successfully"
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,9 +32,9 @@ class WatchlistsController < ApplicationController
     @watchlist.update(watchlist_params)
     if @watchlist.save
       redirect_to watchlist_path(@wathclist.id),
-      notice: "La Watchlist se ha actualizado correctamente"
+                  notice: "La Watchlist se ha actualizado correctamente"
     else
-    render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -48,5 +48,9 @@ class WatchlistsController < ApplicationController
 
   def watchlist_params
     params.require(:watchlist).permit(:title)
+  end
+
+  def set_user
+    @user = current_user if current_user
   end
 end
