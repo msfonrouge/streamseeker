@@ -77,3 +77,6 @@ group :test do
   gem "webdrivers"
   gem 'htmlbeautifier'
 end
+
+gem "cloudinary"
+gem 'pg_search'

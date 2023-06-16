@@ -1,0 +1,26 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="card-product">
+    <div class="col-md-4">
+      <%= cl_image_tag @movie.photo.key %>
+    </div>
+      <div class="col-md-8">
+        <div class="card-product-infos">
+          <h2><%= @movie.title %></h2>
+          <p><%= @movie.description %></p>
+          <p><%= @movie.platform %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% @movie.reviews.each do |review| %>
+  <p><%= review.content %> by <%= review.user %></p>
+<% end %>
+
+<%= simple_form_for([@movie, @review]) do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rate %>
+  <%= f.button :submit %>
+<% end %>
