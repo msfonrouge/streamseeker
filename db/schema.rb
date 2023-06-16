@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_06_15_224400) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,22 +74,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_224400) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
   end
 
-  create_table "ratings", force: :cascade do |t|
-    t.integer "rate"
-    t.bigint "movie_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_ratings_on_movie_id"
-    t.index ["user_id"], name: "index_ratings_on_user_id"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.bigint "movie_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "rate"
     t.index ["movie_id"], name: "index_reviews_on_movie_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
@@ -116,8 +109,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_15_224400) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "markers", "movies"
   add_foreign_key "markers", "watchlists"
-  add_foreign_key "ratings", "movies"
-  add_foreign_key "ratings", "users"
   add_foreign_key "reviews", "movies"
   add_foreign_key "reviews", "users"
   add_foreign_key "watchlists", "users"

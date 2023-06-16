@@ -8,11 +8,13 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @review = Review.new
+    @rating = Rating.new
   end
 
   private
 
   def set_movies
-    @movies = Movie.find(params[:id])
+    @movie = Movie.find(params[:id])
   end
 end
