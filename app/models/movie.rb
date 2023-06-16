@@ -6,4 +6,8 @@ class Movie < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :markers, dependent: :destroy
   has_many :watchlists, through: :markers, dependent: :destroy
+
+  def self.global_search(query)
+    
+  end
 end
