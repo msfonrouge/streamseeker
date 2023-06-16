@@ -1,2 +1,23 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<%= simple_form_for :search, url: root_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <%= f.input :query, input_html: { class: 'form-control string required', id: 'search_query' }, label: false %>
+    <%= f.button :submit, class: 'btn btn-flat' do %>
+      <i class="fas fa-search"></i> Search
+    <% end %>
+  </div>
+<% end %>
+<% results = PgSearch.multisearch(params[:search][:query]) if params[:search] && params[:search][:query].present? %>
+<% if results %>
+  <% results.each do |result| %>
+    <% movie = result.searchable %>
+    <p><%= movie.title %></p>
+    <% if movie.photo.present? %>
+      <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale %>
+    <% else %>
+      <p>No hay imagen</p>
+    <% end %>
+  <% end %>
+<% end %>
