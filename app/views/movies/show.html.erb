@@ -13,14 +13,19 @@
       </div>
     </div>
   </div>
+
+  <ul>
+    <% @movie.reviews.each do |review| %>
+      <li><p><%= review.content %></p></li>
+      <li><p>by <%= review.user.email %></p></li>
+    <% end %>
+  </ul>
+
+  <p>Rating: <%= @movie.reviews.average(:rate).to_f %></p>
+
+  <%= simple_form_for([@movie, @review]) do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rate, as: :check_boxes, collection: [1, 2, 3, 4, 5] %>
+    <%= f.button :submit %>
+  <% end %>
 </div>
-
-<% @movie.reviews.each do |review| %>
-  <p><%= review.content %> by <%= review.user %></p>
-<% end %>
-
-<%= simple_form_for([@movie, @review]) do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rate %>
-  <%= f.button :submit %>
-<% end %>
