@@ -1,7 +1,7 @@
 <div id="bg-image">
   <div class="container full-height">
     <div class="text-center">
-      <img src="assets/logo.png">
+      <%= image_tag "logo.png" %>
     </div>
     <div class="row d-flex justify-content-center my-3">
       <%= simple_form_for :search, url: root_path, method: :get do |f| %>
@@ -27,16 +27,14 @@
 <div class="container d-flex justify-content-center flex-wrap mt-5">
   <% @movies.each do |movie| %>
     <div class="card-trip m-3">
-      <%= link_to movie_path(movie), class: 'clear-link' do %>
-        <% if movie.photo.attached? %> <%= cl_image_tag movie.photo.key, height:
+      <% if movie.photo.attached? %> <%= cl_image_tag movie.photo.key, height:
     300, width: 200, crop: :scale, class:"card-img-top"%> <% end %>
-        <div class="card-trip-infos col">
-          <div>
-            <h2><%= movie.title %></h2>
-            <p><%= movie.year %></p>
-          </div>
+      <div class="card-trip-infos col">
+        <div>
+          <h2><%= movie.title %></h2>
+          <p><%= movie.year %></p>
         </div>
-      <% end %>
+      </div>
     </div>
   <% end %>
 </div>
