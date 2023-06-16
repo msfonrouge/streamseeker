@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home, :index ]
+  skip_before_action :authenticate_user!, only: %i[home index]
 
   def home
-     @user = current_user
+    @user = current_user
+    @movies = Movie.order("RANDOM()").limit(10)
   end
 end
