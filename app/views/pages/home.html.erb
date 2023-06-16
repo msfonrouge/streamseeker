@@ -3,15 +3,17 @@
     <div class="text-center">
       <%= image_tag "logo.png" %>
     </div>
-    <div class="row d-flex justify-content-center my-3">
-      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-        <div class="search-form-control form-group">
-          <%= f.input :query, input_html: { class: 'form-control string required my-3', id: 'search_query' }, label: false %>
-          <%= button_tag :submit, class: 'btn btn-primary rounded-right top-0 bottom-0 end-0', value: 'Search' do %>
-            <i class="fas fa-search"></i> Search
-          <% end %>
-        </div>
-      <% end %>
+    <div data-controller="search">
+      <div class="row d-flex justify-content-center my-3">
+        <%= simple_form_for :search, url: root_path, method: :get, html: {class: "mb-4", data: {search_target: "form"}} do |f| %>
+          <div class="search-form-control form-group" >
+            <%= f.input :query, input_html: { class: 'form-control string required my-3', id: 'search_query', data: { search_target: "input", action: "keyup->search#submit" } }, label: false %>
+            <%= button_tag :submit, class: 'btn btn-primary rounded-right top-0 bottom-0 end-0', value: 'Search' do %>
+              <i class="fas fa-search"></i> Search
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div class="">
       <ul class=" d-flex  flex-wrap justify-content-center gap-3">
