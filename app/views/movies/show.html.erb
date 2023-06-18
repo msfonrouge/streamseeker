@@ -1,31 +1,36 @@
-<div class="container mt-3">
-  <div class="row">
-    <div class="card-product">
-    <div class="col-md-4">
-      <%= cl_image_tag @movie.photo.key %>
-    </div>
-      <div class="col-md-8">
-        <div class="card-product-infos">
-          <h2><%= @movie.title %></h2>
-          <p><%= @movie.description %></p>
-          <p><%= @movie.platform %></p>
-        </div>
-      </div>
+<div class="container m-5">
+  <div class="card-product">
+    <%= cl_image_tag @movie.photo.key %>
+    <div class="card-product-infos">
+      <h2><%= @movie.title %></h2>
+      <p><%= @movie.year %></p>
+      <p><%= @movie.description %></p>
+      <% if @movie.reviews.average(:rate) %>
+        <p>Users rating: <%= @movie.reviews.average(:rate).round %></p>
+      <% else %>
+        <p>Users rating: N/A</p>
+      <% end %>
+      <p><%= @movie.platform %></p>
     </div>
   </div>
-
-  <ul>
-    <% @movie.reviews.each do |review| %>
-      <li><p><%= review.content %></p></li>
-      <li><p>by <%= review.user.email %></p></li>
-    <% end %>
-  </ul>
-
-  <p>Rating: <%= @movie.reviews.average(:rate).to_f %></p>
-
+  <% @movie.reviews.each do |review| %>
+    <div class="review">
+      <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+      <div class="review-content">
+        <p><small>by <%= review.user.email %></small></p>
+        <p><%= review.content %></p>
+        <p><%= review.rate %></p>
+        <span class="gl-star-rating gl-star-rating--ltr"></span>
+      </div>
+      <div class="review-actions">
+        <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+        <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+      </div>
+    </div>
+  <% end %>
   <%= simple_form_for([@movie, @review]) do |f| %>
     <%= f.input :content %>
-    <%= f.input :rate, as: :check_boxes, collection: [1, 2, 3, 4, 5] %>
+    <%= f.input :rate, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
     <%= f.button :submit %>
   <% end %>
 </div>
