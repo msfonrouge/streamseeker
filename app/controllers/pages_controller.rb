@@ -3,17 +3,18 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
-    @movies = Movie.order("RANDOM()").limit(10)
     @genres = Movie.distinct.pluck(:genre)
 
     if params[:query]
-      @movie_search = Movie.global_search(params[:query])
+      @movies = Movie.search_all(params[:query])
     else
-      @movie_search = Movie.all
+      @movies = Movie.order("RANDOM()").limit(10)
     end
     respond_to do |format|
       format.html
-      format.json { render json: { movies_search: @movies_search } }
+      # format.json { render json: { movies_search: @movies_search } }
+      # no quiero el JSON
+      format.text { render partial: "shared/list", locals: { movies: @movies }, formats: :html }
     end
   end
 end
