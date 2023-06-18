@@ -5,7 +5,11 @@
       <h2><%= @movie.title %></h2>
       <p><%= @movie.year %></p>
       <p><%= @movie.description %></p>
-      <p>Users rating: <%= @movie.reviews.average(:rate).round %></p>
+      <% if @movie.reviews.average(:rate) %>
+        <p>Users rating: <%= @movie.reviews.average(:rate).round %></p>
+      <% else %>
+        <p>Users rating: N/A</p>
+      <% end %>
       <p><%= @movie.platform %></p>
     </div>
   </div>
