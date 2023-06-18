@@ -3,22 +3,18 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
-    @movies = Movie.order("RANDOM()").limit(10)
     @genres = Movie.distinct.pluck(:genre)
 
     if params[:query]
-      # @movie_search = Movie.where("ILIKE" params[:query])
-      # encontrar con metodo de pgsearch para que iguale params.
-      # aca tengo que en vez Movie.where definir que metodo de pg.search
+      @movies = Movie.search_all(params[:query])
     else
-      @movie_search = Movie.all
+      @movies = Movie.order("RANDOM()").limit(10)
     end
     respond_to do |format|
       format.html
       # format.json { render json: { movies_search: @movies_search } }
       # no quiero el JSON
-      format.text { render partial: "shared/list", locals: { movie_search: @movie_search }, formats: :html }
-
+      format.text { render partial: "shared/list", locals: { movies: @movies }, formats: :html }
     end
   end
 end
