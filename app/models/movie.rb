@@ -12,6 +12,6 @@ class Movie < ApplicationRecord
   has_many :watchlists, through: :markers, dependent: :destroy
   acts_as_favoritable
 
-  validates :title, :year, :platform, presence: true
+  validates :title, :year, presence: true
   validates :title, uniqueness: { scope: [:year, :length] }
 end
