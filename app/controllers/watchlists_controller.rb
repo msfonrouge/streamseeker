@@ -1,5 +1,6 @@
 class WatchlistsController < ApplicationController
-  before_action :set_user, only: [:index]
+  before_action :set_user, only: [:index, :new, :edit, :index]
+
   def index
     @watchlists = @user.watchlists
   end
@@ -7,6 +8,8 @@ class WatchlistsController < ApplicationController
   def show
     @watchlist = Watchlist.find(params[:id])
     @marker = Marker.new
+    @user = current_user
+    @markers = @watchlist.markers
   end
 
   def new
