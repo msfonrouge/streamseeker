@@ -1,7 +1,7 @@
 class Movie < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search_all,
-  against: %i[title description year length genre platform],
+  against: %i[title platform],
   using: {
     tsearch: { prefix: true }
   }
