@@ -36,6 +36,9 @@
   margin-left: 16px;
   font-size: 14px;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .review .review-actions a:hover {

@@ -20,12 +20,11 @@
         <p><small>by <%= review.user.email %></small></p>
         <p><%= review.content %></p>
         <p><%= review.rate %></p>
-        <span class="gl-star-rating gl-star-rating--ltr"></span>
       </div>
-      <div class="review-actions">
-        <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
-        <a href="#">Delete <i class="far fa-trash-alt"></i></a>
-      </div>
+        <div class="review-actions">
+          <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+          <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+        </div>
     </div>
   <% end %>
   <%= simple_form_for([@movie, @review]) do |f| %>
