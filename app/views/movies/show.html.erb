@@ -30,6 +30,6 @@
   <%= simple_form_for([@movie, @review]) do |f| %>
     <%= f.input :content %>
     <%= f.input :rate, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "default1_button" %>
   <% end %>
 </div>
