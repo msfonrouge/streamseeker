@@ -15,7 +15,7 @@
   </div>
   <% @movie.reviews.each do |review| %>
     <div class="review">
-      <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+        <%= cl_image_tag @user.photo.key, gravity: :face, class: "avatar" %>
       <div class="review-content">
         <p><small>by <%= review.user.email %></small></p>
         <p><%= review.content %></p>
