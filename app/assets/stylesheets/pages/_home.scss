@@ -13,3 +13,59 @@
     color: #0E0000;
     text-decoration: none;
 }
+
+.badge {
+
+	border-radius: 10px;
+	padding: 8px 10px;
+	color: white;
+	background: #212529;
+	cursor: pointer;
+	user-select: none;
+	transition: all .3s;
+	font-size: large;
+  font-family: 'Rubik', sans-serif;
+
+	&:hover {
+		transform: scale(1.03);
+		background: #FBC500;
+		box-shadow: 0 2px 20px rgba(0,0,0,.15);
+	}
+
+	&:active {
+		transform: scale(.96);
+
+		.badge {
+			transform: scale(1.2);
+		}
+	}
+}
+
+  .search-button {
+  background-clip: padding-box;
+  background-color: #1bb4c2;
+  border: 1px solid transparent;
+  }
+
+.card-color {
+ background-color: #161616;
+}
+
+
+// .badge {
+ // --bs-badge-padding-x: .65em;
+ // --bs-badge-padding-y: .35em;
+ // --bs-badge-font-size: .75em;
+ // --bs-badge-font-weight: 700;
+ /// --bs-badge-color: #fff;
+ // --bs-badge-border-radius: .375rem;
+ // display: inline-block;
+ // padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+ // font-size: var(--bs-badge-font-size);
+ // font-weight: var(--bs-badge-font-weight);
+ // line-height: 1;
+ // color: var(--bs-badge-color);
+//  text-align: center;
+//  white-space: nowrap;
+ // vertical-align: baseline;
+ // border-radius: var(--bs-badge-border-radius);
