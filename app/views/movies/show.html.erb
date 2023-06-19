@@ -15,7 +15,11 @@
   </div>
   <% @movie.reviews.each do |review| %>
     <div class="review">
-        <%= cl_image_tag @user.photo.key, gravity: :face, class: "avatar" %>
+      <% if review.user.photo.attached? %>
+        <%= cl_image_tag review.user.photo.key, gravity: :face, class: "avatar" %>
+        <% else %>
+            <%= image_tag "https://www.softzone.es/app/uploads/2018/04/guest.png", class: "avatar", alt: "fallback avatar" %>
+      <% end %>
       <div class="review-content">
         <p><small>by <%= review.user.email %></small></p>
         <p><%= review.content %></p>
