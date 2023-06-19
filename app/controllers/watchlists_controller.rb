@@ -6,6 +6,7 @@ class WatchlistsController < ApplicationController
 
   def show
     @watchlist = Watchlist.find(params[:id])
+    @marker = Marker.new
   end
 
   def new
@@ -15,6 +16,7 @@ class WatchlistsController < ApplicationController
   def create
     @watchlist = Watchlist.new(watchlist_params)
     @watchlist.user = current_user
+    # @watchlist.marker = Marker.new()
     if @watchlist.save
       redirect_to watchlists_path,
                   notice: "The watchlist has been created successfully"
