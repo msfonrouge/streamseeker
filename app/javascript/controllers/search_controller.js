@@ -10,17 +10,17 @@ export default class extends Controller {
     console.log(this.inputTarget)
   }
 
-  submit(event) {
-    event.preventDefault();
+  submit() {
+    // event.preventDefault();
 
     const url = `${this.formTarget.action}?query=${this.inputTarget.value}`
     fetch(url, {headers: {"Accept": "text/plain"}})
       .then(response => response.text())
       .then((data) => {
         console.log(data)
-        // this.listTarget.outerHTML = data
+        this.listTarget.outerHTML = data
 
-        this.listTarget.insertAdjacentHTML('afterend', data)
+        // this.listTarget.insertAdjacentHTML('afterend', data)
       })
   }
 }

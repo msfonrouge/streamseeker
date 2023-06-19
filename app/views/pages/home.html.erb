@@ -4,17 +4,19 @@
       <%= image_tag "logo.png" %>
     </div>
     <div class="row d-flex justify-content-center my-3" data-controller="search">
-      <div class="" data-search-target="list">
-        <%= form_with(url: root_path, method: :get, class: "mb-4", data: {search_target: "form"}) do |f| %>
-          <div class="search-form-control form-group" >
-            <%= f.text_field :query, class: 'form-control string required my-3', id: 'search_query', data: { search_target: "input", action: "keyup->search#submit" }, label: false %>
-            <%= f.button :submit, class: 'btn btn-primary rounded-right top-0 bottom-0 end-0' do %>
-              <i class="fas fa-search"></i>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <%= form_with(url: root_path, method: :get, class: "mb-4", data: {search_target: "form"}) do |f| %>
+        <div class="search-form-control form-group" >
+          <%= f.text_field :query, class: 'form-control string required my-3', id: 'search_query', data: { search_target: "input", action: "keyup->search#submit" }, label: false %>
+          <%= f.button :submit, class: 'btn btn-primary rounded-right top-0 bottom-0 end-0' do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+        </div>
+      <% end %>
+      <%= render "shared/list", movies: @movies %>
+      <%# <div class="" data-search-target="list"> %>
+      <%# </div> %>
     </div>
+
     <div class="">
       <ul class=" d-flex  flex-wrap justify-content-center gap-3">
         <% @genres.each do |genre| %>
@@ -27,7 +29,7 @@
   </div>
 </div>
 <div class="container d-flex justify-content-center flex-wrap mt-5">
-  <% @movies.each do |movie| %>
+  <% @movies_random.each do |movie| %>
     <%= link_to movie_path(movie) do %>
       <div class="card-trip m-3">
         <% if movie.photo.attached? %> <%= cl_image_tag movie.photo.key, height:
