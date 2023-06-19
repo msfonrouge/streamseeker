@@ -19,7 +19,7 @@
       <ul class=" d-flex  flex-wrap justify-content-center gap-3">
         <% @genres.each do |genre| %>
           <%= link_to movies_path, class: 'text-white' do %>
-            <%= button_tag genre, class: 'btn bg-dark text-white' %>
+            <%= button_tag genre.capitalize, class: 'btn bg-dark text-white' %>
           <% end %>
         <% end %>
       </ul>

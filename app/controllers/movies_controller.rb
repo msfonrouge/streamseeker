@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   before_action :set_movies, only: [:show]
-
+  before_action :set_user, only: [:show, :index]
   def index
     @movies = Movie.all
     @movies = @movie.search_movie(params[:query]) if params[:query].present?
@@ -20,5 +20,9 @@ class MoviesController < ApplicationController
 
   def set_movies
     @movie = Movie.find(params[:id])
+  end
+
+  def set_user
+    @user = current_user if current_user
   end
 end
