@@ -1,17 +1,37 @@
-<div class="bg-white">
-<div class= "flex-wrapper">
-<div class="container bg-white">
-<div class="row justify-content-center">
-<div class= "col-12 col-sm-6">
+<div class= "container">
 
 
-<p>hola desde watchlists#show</p>
+
+<h2 class="pt-5"><%= @watchlist.title %></h2>
+<% favorite_movies = @watchlist.user.all_favorited(scope: :favorites) %>
+
+
+
+
+<div class="d-flex justify-content-center flex-wrap">
+
+<% favorite_movies.each do |movie| %>
+<div class="card-trip m-3">
+  <%= link_to movie, class: 'clear-link' do %>
+    <% if movie.photo.attached? %>
+      <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
+    <% end %>
+    <div class="card-trip-infos col">
+      <div>
+        <h2><%= movie.title %></h2>
+        <p><%= movie.year %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% end %>
+
+
+
+
 
 
 </div>
 </div>
-</div>
-</div>
-</div>
 
-  <%= render "shared/footer"%>

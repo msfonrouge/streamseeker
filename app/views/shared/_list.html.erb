@@ -1,0 +1,8 @@
+<ul class="list-group">
+  <% movies.each do |movie| %>
+    <li class="list-group-item d-flex">
+      <%= cl_image_tag movie.photo.key, height:40, width: 30, crop: :thumb%>
+      <%= link_to movie.title, movie_path(movie), class: "list-group-item list-group-item-action" %>
+    </li>
+  <% end %>
+</ul>
