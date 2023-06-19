@@ -10,4 +10,5 @@ class Movie < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :markers, dependent: :destroy
   has_many :watchlists, through: :markers, dependent: :destroy
+  acts_as_favoritable
 end
