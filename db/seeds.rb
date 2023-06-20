@@ -822,4 +822,24 @@ markers_charlie_lasmejores = Marker.create(seen: true, watchlist_id: watchlist_c
 markers_maximo_ver_con_amigos = Marker.create(seen: true, watchlist_id: watchlist_maximo.id, movie_id: movie4.id)
 markers_maximo_ver_con_amigos = Marker.create(seen: true, watchlist_id: watchlist_maximo.id, movie_id: movie5.id)
 
+principal_user.favorite(movie9, scope: :favorite)
+principal_user.favorite(top_gun, scope: :favorite)
+principal_user.favorite(movie14, scope: :favorite)
+principal_user.favorite(movie2, scope: :favorite)
+
+principal_user.favorite(movie1, scope: :watchlist)
+principal_user.favorite(movie4, scope: :watchlist)
+principal_user.favorite(movie6, scope: :watchlist)
+principal_user.favorite(movie13, scope: :watchlist)
+
+principal_user.favorite(spider, scope: :domigueras)
+principal_user.favorite(movie20, scope: :domigueras)
+principal_user.favorite(demon, scope: :domigueras)
+principal_user.favorite(harry, scope: :domigueras)
+
+principal_user.favorite(shrek, scope: :chistosas)
+principal_user.favorite(deadpool, scope: :chistosas)
+principal_user.favorite(happy, scope: :chistosas)
+principal_user.favorite(movie15, scope: :chistosas)
+
 puts "seeds Charlie finish"
