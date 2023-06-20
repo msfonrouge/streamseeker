@@ -45,9 +45,9 @@ class WatchlistsController < ApplicationController
   end
 
   def destroy
-    @watchlist = Wathclist.find(params[:id])
+    @watchlist = Watchlist.find(params[:id])
     @watchlist.destroy
-    redirect_to watchlist_path, status: :see_other
+    redirect_to watchlists_path, status: :see_other
   end
 
   private

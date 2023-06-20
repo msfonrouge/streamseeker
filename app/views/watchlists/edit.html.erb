@@ -1,11 +1,14 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class= "col-12 col-sm-6">
-      <%= simple_form_for(@watchlist) do |f| %>
-        <% frame_id =  dom_id(@watchlist, "title_turbo_frame") %>
-        <%= turbo_frame_tag frame_id do %>
-          <%= f.input :title %>
-          <%= f.button :submit %>
-          <%= link_to "Cancel", @watchlist, class: "btn btn-danger" %>
-        <% end %>
+<%= simple_form_for(@watchlist) do |f| %>
+  <% frame_id =  dom_id(@watchlist, "title_turbo_frame") %>
+  <%= turbo_frame_tag frame_id do %>
+    <%= f.input :title %>
+    <div class="review-actions">
+      <%= button_tag type: 'submit', class: 'default1_button' do %>
+        <i class="fa-solid fa-check"></i>
       <% end %>
+      <%= link_to @watchlist, class: "default1_button" do %>
+        <i class="fa-solid fa-ban"></i>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
