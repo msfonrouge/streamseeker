@@ -59,8 +59,8 @@ review2 =
   Review.create(
     content: "Esta es una reseña.",
     rate: 4,
-    movie_id: movie1,
-    user_id: user2
+    movie_id: movie1.id,
+    user_id: user2.id
   )
 
 watchlist1 = Watchlist.create(title: "Para ver", user_id: user1)
@@ -89,16 +89,16 @@ review3 =
   Review.create(
     content: "Un ejemplo perfecto de porque NUNCA hay que perder la esperanza.",
     rate: 4,
-    movie_id: movie2,
-    user_id: user3
+    movie_id: movie2.id,
+    user_id: user3.id
   )
 
 review4 =
   Review.create(
     content: "Esta es una reseña.",
     rate: 3,
-    movie_id: movie2,
-    user_id: user4
+    movie_id: movie2.id,
+    user_id: user4.id
   )
 
 watchlist3 = Watchlist.create(title: "Para ver", user_id: user3)
@@ -127,16 +127,16 @@ review5 =
   Review.create(
     content: "Spielberg magnum opus",
     rate: 4,
-    movie_id: movie3,
-    user_id: user5
+    movie_id: movie3.id,
+    user_id: user5.id
   )
 
 review6 =
   Review.create(
     content: "Esta es una reseña.",
     rate: 3,
-    movie_id: movie3,
-    user_id: user6
+    movie_id: movie3.id,
+    user_id: user6.id
   )
 
 watchlist5 = Watchlist.create(title: "Para ver", user_id: user5)
@@ -165,16 +165,16 @@ review7 =
   Review.create(
     content: "Lo que amo de las historias coreanas es que son tan impredecibles que tu atención y tus emociones siempre están al full. Por algo creo que ganó los premio que ganó. Además creo que fue una gran aportación al mundo para darle apertura a series y películas coreanas. Creo que al estar del otro lado del charco, sólo sabemos o hemos visto (en lo personal) una manera distinta de vivir a comparación de la vida de la familia del barrio pobre. Es sorprendente cómo los sucesos van acomodándose, creo que la actriz principal es muy buena ya que su actuación (no soy experta pero...) me hace creer y sentir estar en la historia.",
     rate: 4,
-    movie_id: movie4,
-    user_id: user7
+    movie_id: movie4.id,
+    user_id: user7.id,
   )
 
 review8 =
   Review.create(
     content: "Esta es una reseña.",
     rate: 2,
-    movie_id: movie4,
-    user_id: user8
+    movie_id: movie4.id,
+    user_id: user8.id
   )
 
 watchlist7 = Watchlist.create(title: "Para ver", user_id: user7)
@@ -203,16 +203,16 @@ review9 =
   Review.create(
     content: "Esta es una reseña.",
     rate: 2,
-    movie_id: movie5,
-    user_id: user9
+    movie_id: movie5.id,
+    user_id: user9.id
   )
 
 review10 =
   Review.create(
     content: "Secuencia favorita?",
     rate: 3,
-    movie_id: movie5,
-    user_id: user10
+    movie_id: movie5.id,
+    user_id: user10.id
   )
 
 watchlist9 = Watchlist.create(title: "Para ver", user_id: user9)
@@ -241,16 +241,16 @@ review11 =
   Review.create(
     content: "La película más repetida de toda la historia?",
     rate: 1,
-    movie_id: movie6,
-    user_id: user11
+    movie_id: movie6.id,
+    user_id: user11.id
   )
 
 review12 =
   Review.create(
     content: "Esta es una reseña.",
     rate: 3,
-    movie_id: movie6,
-    user_id: user12
+    movie_id: movie6.id,
+    user_id: user12.id
   )
 
 watchlist11 = Watchlist.create(title: "Para ver", user_id: user11)
@@ -279,16 +279,16 @@ review13 =
   Review.create(
     content: "Esta es una reseña.",
     rate: 4,
-    movie_id: movie7,
-    user_id: user13
+    movie_id: movie7.id,
+    user_id: user13.id
   )
 
 review14 =
   Review.create(
     content: "Recomiendo la versión original..",
     rate: 2,
-    movie_id: movie7,
-    user_id: user14
+    movie_id: movie7.id,
+    user_id: user14.id
   )
 
 watchlist13 = Watchlist.create(title: "Para ver", user_id: user13)
@@ -317,16 +317,16 @@ review15 =
   Review.create(
     content: "Si te digo que ví esta película 50 veces..",
     rate: 5,
-    movie_id: movie8,
-    user_id: user15
+    movie_id: movie8.id,
+    user_id: user15.id
   )
 
 review16 =
   Review.create(
     content: "Esta es una reseña.",
     rate: 1,
-    movie_id: movie8,
-    user_id: user16
+    movie_id: movie8.id,
+    user_id: user16.id
   )
 
 watchlist15 = Watchlist.create(title: "Para ver", user_id: user15)
@@ -366,8 +366,8 @@ review18 =
   Review.create(
     content: "Esta es una reseña.",
     rate: 1,
-    movie_id: movie9,
-    user_id: user18
+    movie_id: movie9.id,
+    user_id: user18.id
   )
 
 watchlist17 = Watchlist.create(title: "Para ver", user_id: user17)
@@ -396,16 +396,16 @@ review19 =
   Review.create(
     content: "Érase una vez en el Oeste o El bueno, el feo y el malo?",
     rate: 2,
-    movie_id: movie10,
-    user_id: user19
+    movie_id: movie10.id,
+    user_id: user19.id
   )
 
 review20 =
   Review.create(
     content: "Esta es una reseña.",
     rate: 3,
-    movie_id: movie10,
-    user_id: user20
+    movie_id: movie10.id,
+    user_id: user20.id
   )
 
 watchlist19 = Watchlist.create(title: "Para ver", user_id: user19)
@@ -529,7 +529,7 @@ alex = User.create(
   password_confirmation: "123456"
 )
 
-photo_alex = URI.open("https://i.pinimg.com/originals/2c/e9/c3/2ce9c35cc8d84b3107f764ea3ad9e135.jpg")
+photo_alex = URI.open("https://i.pinimg.com/736x/fb/e4/79/fbe47969269a476fe22ee7106be36476.jpg")
 alex.photo.attach(io: photo_alex, filename: "alex.png", content_type: "image/png")
 alex.save!
 
@@ -810,17 +810,17 @@ photo_maximo = URI.open("https://avatars.githubusercontent.com/u/37337680?v=4")
 maximo.photo.attach(io: photo_maximo, filename: "maximo.png", content_type: "image/png")
 maximo.save!
 
-review_Sin_City = Review.create(content: "¡Una película policíaca perfecta y súper elegante! La película te involucra cada segundo. Thriller, Acción, Crimen, ¡todos ustedes llegan aquí! ¡El alto contraste, el fondo oscuro y los increíbles sonidos completan la obra maestra", rate: 4, movie_id: movie1.id, user_id: charlie.id)
-review_Hombre_Araña = Review.create(content: "Esta es la peor película de historietas que he visto. Al menos puedo disfrutar un poco irónicamente de hacer pedazos a Daredevil (la película, por supuesto) o Los Cuatro Fantásticos, o incluso TASM 2, pero esto es solo una experiencia miserable. ¿Cómo pasamos de la brillantez cursi de Spider-Man 3 a esto? Hay una escena en toda esta película que disfruté. Uno. Y ahí es cuando casi se convierte en un villano. El peter parker de Andrew en esto es un tipo llorón que anda en patineta, el traje se ve horrible y la trama es tan tonta. El hombre lagarto quiere convertir a las personas en hombres lagarto. ¿Por qué? No lo sé, porque la película ni siquiera TRATA de justificarlo. Es solo 'esto es lo que está pasando. Afrontar.' Esta es, sin ironía, una de mis películas más odiadas y, sinceramente, no entiendo cómo todos piensan que es buena, o incluso que está bien. Esta película es horrible.", rate: 1, movie_id: movie2.id, user_id: maximo.id)
+review_Sin_City = Review.create(content: "¡Una película policíaca perfecta y súper elegante! La película te involucra cada segundo. Thriller, Acción, Crimen, ¡todos ustedes llegan aquí! ¡El alto contraste, el fondo oscuro y los increíbles sonidos completan la obra maestra", rate: 4, movie_id: movie11.id, user_id: charlie.id)
+review_Hombre_Araña = Review.create(content: "Esta es la peor película de historietas que he visto. Al menos puedo disfrutar un poco irónicamente de hacer pedazos a Daredevil (la película, por supuesto) o Los Cuatro Fantásticos, o incluso TASM 2, pero esto es solo una experiencia miserable. ¿Cómo pasamos de la brillantez cursi de Spider-Man 3 a esto? Hay una escena en toda esta película que disfruté. Uno. Y ahí es cuando casi se convierte en un villano. El peter parker de Andrew en esto es un tipo llorón que anda en patineta, el traje se ve horrible y la trama es tan tonta. El hombre lagarto quiere convertir a las personas en hombres lagarto. ¿Por qué? No lo sé, porque la película ni siquiera TRATA de justificarlo. Es solo 'esto es lo que está pasando. Afrontar.' Esta es, sin ironía, una de mis películas más odiadas y, sinceramente, no entiendo cómo todos piensan que es buena, o incluso que está bien. Esta película es horrible.", rate: 1, movie_id: movie12.id, user_id: maximo.id)
 
 watchlist_charlie = Watchlist.create(title: "las mejores", user_id: charlie.id)
 watchlist_maximo = Watchlist.create(title: "para ver con amigos", user_id: maximo.id)
 
-markers_charlie_lasmejores = Marker.create(seen: true, watchlist_id: watchlist_charlie.id, movie_id: movie1.id)
-markers_charlie_lasmejores = Marker.create(seen: true, watchlist_id: watchlist_charlie.id, movie_id: movie3.id)
+markers_charlie_lasmejores = Marker.create(seen: true, watchlist_id: watchlist_charlie.id, movie_id: movie11.id)
+markers_charlie_lasmejores = Marker.create(seen: true, watchlist_id: watchlist_charlie.id, movie_id: movie13.id)
 
-markers_maximo_ver_con_amigos = Marker.create(seen: true, watchlist_id: watchlist_maximo.id, movie_id: movie4.id)
-markers_maximo_ver_con_amigos = Marker.create(seen: true, watchlist_id: watchlist_maximo.id, movie_id: movie5.id)
+markers_maximo_ver_con_amigos = Marker.create(seen: true, watchlist_id: watchlist_maximo.id, movie_id: movie14.id)
+markers_maximo_ver_con_amigos = Marker.create(seen: true, watchlist_id: watchlist_maximo.id, movie_id: movie15.id)
 
 principal_user.favorite(movie9, scope: :favorite)
 principal_user.favorite(top_gun, scope: :favorite)
