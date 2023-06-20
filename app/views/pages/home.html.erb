@@ -1,7 +1,7 @@
 
   <div class="container full-height">
     <div class="row d-flex justify-content-center my-3" data-controller="search">
-      <%= form_with(url: root_path, method: :get, class: "mb-4", data: {search_target: "form"}) do |f| %>
+      <%= form_with(url: movies_path, method: :get, class: "mb-4", data: {search_target: "form"}) do |f| %>
         <div class="search-form-control form-group" >
           <%= f.text_field :query, class: 'form-control string required my-3', id: 'search_query', data: { search_target: "input", action: "keyup->search#submit" }, label: false %>
           <%= f.button :submit, class: 'btn btn-warning rounded-right top-0 bottom-0 end-0' do %>
@@ -26,21 +26,43 @@
   </div>
 
 <div class="container d-flex justify-content-center flex-wrap mt-5">
-  <% @movies_random.each do |movie| %>
-    <%= link_to movie_path(movie) do %>
-      <div class="card-trip m-3">
-      <div class = "card-color text-white">
-        <% if movie.photo.attached? %> <%= cl_image_tag movie.photo.key, height:
-          300, width: 200, crop: :scale, class:"card-img-top"%>
-        <% end %>
-        <div class="card-trip-infos col">
-          <div>
-            <h2><%= movie.title %></h2>
-            <p><%= movie.year %></p>
+  <% if @movies_random %>
+    <% @movies_random.each do |movie| %>
+      <%= link_to movie_path(movie) do %>
+        <div class="card-trip m-3">
+        <div class = "card-color text-white">
+          <% if movie.photo.attached? %> <%= cl_image_tag movie.photo.key, height:
+            300, width: 200, crop: :scale, class:"card-img-top"%>
+          <% end %>
+          <div class="card-trip-infos col">
+            <div>
+              <h2><%= movie.title %></h2>
+              <p><%= movie.year %></p>
+            </div>
           </div>
         </div>
-      </div>
-      </div>
+        </div>
+      <% end %>
     <% end %>
+  <% elsif @movies.size > 0 %>
+    <% @movies.each do |movie| %>
+      <%= link_to movie_path(movie) do %>
+        <div class="card-trip m-3">
+        <div class = "card-color text-white">
+          <% if movie.photo.attached? %> <%= cl_image_tag movie.photo.key, height:
+            300, width: 200, crop: :scale, class:"card-img-top"%>
+          <% end %>
+          <div class="card-trip-infos col">
+            <div>
+              <h2><%= movie.title %></h2>
+              <p><%= movie.year %></p>
+            </div>
+          </div>
+        </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <h3> Lo lamento! Tu película no se ha encontrado. </h3>
   <% end %>
 </div>

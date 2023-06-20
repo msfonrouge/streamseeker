@@ -8,6 +8,14 @@ export default class extends Controller {
     console.log(this.element)
     console.log(this.formTarget)
     console.log(this.inputTarget)
+        // Verifica si se encuentra en la página 'home'
+        if (this.element.closest("#bg-image")) {
+          // Conectado en la página 'home'
+          console.log("Conectado en la página 'home'");
+        } else {
+          // Conectado en la página 'index'
+          console.log("Conectado en la página 'index'");
+        }
   }
 
   submit() {
@@ -24,7 +32,3 @@ export default class extends Controller {
       })
   }
 }
-
-// primero hacer console.log para ver respuesta .text
-// falta que al borrar la barra desaparezca la lista.
-// falta que no aparezcan los resultados repetidos.

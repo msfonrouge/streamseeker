@@ -3,17 +3,22 @@ class MoviesController < ApplicationController
   before_action :set_movies, only: [:show]
   before_action :set_user, only: [:show, :index]
   def index
-    @movies = Movie.all
-    @movies = @movie.search_movie(params[:query]) if params[:query].present?
+
+    if params[:query].present?
+      @movies = Movie.search_all(params[:query])
+    else
+      @movies = Movie.all
+    end
+    # redirect_to movies_path(query: params[:query])
+    respond_to do |format|
+      format.html
+      format.text { render partial: "shared/list", locals: { movies: @movies }, formats: [:html] }
+    end
   end
 
   def show
     @movie = Movie.find(params[:id])
     @review = Review.new
-  end
-
-  def rating
-
   end
 
   private

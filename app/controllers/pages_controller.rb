@@ -7,6 +7,8 @@ class PagesController < ApplicationController
 
     if params[:query]
       @movies = Movie.search_all(params[:query])
+      # redirect_to movies_path # ---->
+      # comenta/descomenta es el error que no deja hacer dos acciones de render y redirect
     else
       @movies_random = Movie.order("RANDOM()").limit(10)
       @movies = []
