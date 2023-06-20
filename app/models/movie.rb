@@ -1,7 +1,7 @@
 class Movie < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search_all,
-  against: %i[title description year length genre platform],
+  against: %i[title platform],
   using: {
     tsearch: { prefix: true }
   }
@@ -11,4 +11,7 @@ class Movie < ApplicationRecord
   has_many :markers, dependent: :destroy
   has_many :watchlists, through: :markers, dependent: :destroy
   acts_as_favoritable
+
+  validates :title, :year, presence: true
+  validates :title, uniqueness: { scope: [:year, :length] }
 end

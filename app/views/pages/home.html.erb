@@ -1,25 +1,24 @@
 <div id="bg-image">
   <div class="container full-height">
-    <div class="text-center">
-      <%= image_tag "logo.png" %>
-    </div>
     <div class="row d-flex justify-content-center my-3" data-controller="search">
-      <div class="" data-search-target="list">
-        <%= form_with(url: root_path, method: :get, class: "mb-4", data: {search_target: "form"}) do |f| %>
-          <div class="search-form-control form-group" >
-            <%= f.text_field :query, class: 'form-control string required my-3', id: 'search_query', data: { search_target: "input", action: "keyup->search#submit" }, label: false %>
-            <%= f.button :submit, class: 'btn btn-primary rounded-right top-0 bottom-0 end-0' do %>
-              <i class="fas fa-search"></i>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <%= form_with(url: root_path, method: :get, class: "mb-4", data: {search_target: "form"}) do |f| %>
+        <div class="search-form-control form-group" >
+          <%= f.text_field :query, class: 'form-control string required my-3', id: 'search_query', data: { search_target: "input", action: "keyup->search#submit" }, label: false %>
+          <%= f.button :submit, class: 'btn btn-warning rounded-right top-0 bottom-0 end-0' do %>
+            <i class="fas fa-search"></i>
+          <% end %>
+        </div>
+      <% end %>
+      <%= render "shared/list", movies: @movies %>
+      <%# <div class="" data-search-target="list"> %>
+      <%# </div> %>
     </div>
+
     <div class="">
       <ul class=" d-flex  flex-wrap justify-content-center gap-3">
         <% @genres.each do |genre| %>
           <%= link_to movies_path, class: 'text-white' do %>
-            <%= button_tag genre, class: 'btn bg-dark text-white' %>
+            <%= button_tag genre, class: "badge" %>
           <% end %>
         <% end %>
       </ul>
@@ -27,9 +26,10 @@
   </div>
 </div>
 <div class="container d-flex justify-content-center flex-wrap mt-5">
-  <% @movies.each do |movie| %>
+  <% @movies_random.each do |movie| %>
     <%= link_to movie_path(movie) do %>
       <div class="card-trip m-3">
+      <div class = "card-color text-white">
         <% if movie.photo.attached? %> <%= cl_image_tag movie.photo.key, height:
           300, width: 200, crop: :scale, class:"card-img-top"%>
         <% end %>
@@ -39,6 +39,7 @@
             <p><%= movie.year %></p>
           </div>
         </div>
+      </div>
       </div>
     <% end %>
   <% end %>
