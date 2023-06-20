@@ -37,7 +37,7 @@ class WatchlistsController < ApplicationController
     @watchlist = Watchlist.find(params[:id])
     @watchlist.update(watchlist_params)
     if @watchlist.save
-      redirect_to watchlist_path(@wathclist.id),
+      redirect_to watchlist_path(@watchlist.id),
                   notice: "La Watchlist se ha actualizado correctamente"
     else
       render :edit, status: :unprocessable_entity
@@ -45,9 +45,9 @@ class WatchlistsController < ApplicationController
   end
 
   def destroy
-    @watchlist = Wathclist.find(params[:id])
+    @watchlist = Watchlist.find(params[:id])
     @watchlist.destroy
-    redirect_to watchlist_path, status: :see_other
+    redirect_to watchlists_path, status: :see_other
   end
 
   private

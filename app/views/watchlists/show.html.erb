@@ -1,28 +1,34 @@
 <div class= "container">
   <%= simple_form_for(@watchlist) do |f| %>
-    <%= f.input :title %>
-    <%= f.button :submit %>
-    <div class="d-flex justify-content-between pt-5">
-      <h2 class="pt-5"><%= @watchlist.title %></h2>
+    <% frame_id =  dom_id(@watchlist, "title_turbo_frame") %>
+    <%= turbo_frame_tag frame_id, class: "d-flex justify-content-between pt-5" do %>
+      <h2><%= @watchlist.title %></h2>
       <div class="review-actions">
-        <a href="#" class= "default1_button" ><i class= "fas fa-pencil-alt text-black"></i></a>
-        <a href="#" class= "default1_button" ><i class= "far fa-trash-alt text-black"></i></a>
+        <%= link_to edit_watchlist_path(@watchlist), class: "default1_button" do %>
+          <i class="fas fa-pencil-alt text-black"></i>
+        <% end %>
+        <%= link_to watchlist_path(@watchlist), class: "default1_button", data: {turbo_method: :delete, turbo_confirm: "¿Está seguro de que quiere borrar esta lista?"} do %>
+          <i class= "far fa-trash-alt text-black"></i>
+        <% end %>
       </div>
-    </div>
-    <% favorite_movies = @watchlist.user.all_favorited(scope: :favorites) %>
-    <div class="d-flex justify-content-center flex-wrap">
-      <% favorite_movies.each do |movie| %>
-        <div class="card-trip m-3">
-          <%= link_to movie, class: 'clear-link' do %>
-            <% if movie.photo.attached? %>
-              <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
-            <% end %>
-            <div class="card-trip-infos col">
-              <div>
-                <h2><%= movie.title %></h2>
-                <p><%= movie.year %></p>
-              </div>
-            </div>
+    <% end %>
+  <% end %>
+  <% favorite_movies = @watchlist.user.all_favorited(scope: :favorites) %>
+  <div class="d-flex justify-content-center flex-wrap">
+    <% favorite_movies.each do |movie| %>
+      <div class="card-trip m-3">
+        <%= link_to movie, class: 'clear-link' do %>
+          <% if movie.photo.attached? %>
+            <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
           <% end %>
-        </div>
+          <div class="card-trip-infos col">
+            <div>
+              <h2><%= movie.title %></h2>
+              <p><%= movie.year %></p>
+            </div>
+          </div>
+        <% end %>
       </div>
+    <% end %>
+  </div>
+</div>
