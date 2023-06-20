@@ -20,3 +20,21 @@
     outline: none !important;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
+
+#search_dropdown_results {
+  padding: 6px 20;
+  position: relative;
+}
+
+#search-dropdown-description {
+  border:#FBC500;
+  cursor: pointer;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: flex;
+  align-items:center;
+}
+
+#search-dropdown-description:hover,
+#search-dropdown-description:focus {
+  background-color: #c7ae53;
+}
