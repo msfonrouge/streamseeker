@@ -1,4 +1,4 @@
-<div id="bg-image">
+
   <div class="container full-height">
     <div class="row d-flex justify-content-center my-3" data-controller="search">
       <%= form_with(url: root_path, method: :get, class: "mb-4", data: {search_target: "form"}) do |f| %>
@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-</div>
+
 <div class="container d-flex justify-content-center flex-wrap mt-5">
   <% @movies_random.each do |movie| %>
     <%= link_to movie_path(movie) do %>
