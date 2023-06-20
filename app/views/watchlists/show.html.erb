@@ -1,11 +1,18 @@
 <div class= "container">
-  <div class="d-flex justify-content-between pt-5">
-    <h2 class="pt-5"><%= @watchlist.title %></h2>
-    <div class="review-actions">
-      <a href="#" class= "default1_button" ><i class= "fas fa-pencil-alt text-black"></i></a>
-      <a href="#" class= "default1_button" ><i class= "far fa-trash-alt text-black"></i></a>
-    </div>
-  </div>
+
+    <% frame_id =  dom_id(@watchlist, "title_turbo_frame") %>
+    <%= turbo_frame_tag frame_id, class: "d-flex justify-content-between pt-5" do %>
+      <h2 class="pt-5"><%= @watchlist.title %></h2>
+      <%= link_to "Test", edit_watchlist_path(@watchlist) %>
+      <div class="review-actions">
+        <%= link_to edit_watchlist_path(@watchlist), class: "default1_button" do %>
+          <i class="fas fa-pencil-alt text-black"></i>
+        <% end %>
+        <a href="#" class= "default1_button" ><i class= "fas fa-pencil-alt text-black"></i></a>
+        <a href="#" class= "default1_button" ><i class= "far fa-trash-alt text-black"></i></a>
+      </div>
+
+  <% end %>
   <% favorite_movies = @watchlist.user.all_favorited(scope: :favorites) %>
   <div class="d-flex justify-content-center flex-wrap">
     <% favorite_movies.each do |movie| %>
