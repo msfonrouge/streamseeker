@@ -1,13 +1,13 @@
 // Specific CSS for your home-page
-#bg-image {
-    background: asset-url("pulp-fiction.jpg") no-repeat fixed center;
-    //cross-fade(url("assets/pulp-fiction.jpg"), url(truman-show.png));
-    background-size: cover;
-}
+//#bg-image {
+//    background: asset-url("pulp-fiction.jpg") no-repeat fixed center;
+//    //cross-fade(url("assets/pulp-fiction.jpg"), url(truman-show.png));
+//    background-size: cover;
+//}
 
-.full-height {
-    min-height: 100vh;
-}
+//.full-height {
+ //   min-height: 100vh;
+//}
 
 .clear-link {
     color: #0E0000;
@@ -17,6 +17,7 @@
 .badge {
 
 	border-radius: 10px;
+  border-style: none;
 	padding: 8px 10px;
 	color: white;
 	background: #212529;
@@ -24,8 +25,8 @@
 	user-select: none;
 	transition: all .3s;
 	font-size: large;
-  font-family: 'Rubik', sans-serif;
-
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
 	&:hover {
 		transform: scale(1.03);
 		background: #FBC500;
