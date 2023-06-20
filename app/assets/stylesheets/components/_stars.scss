@@ -1,0 +1,10 @@
+.stars-container {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  background-image: url('/assets/star-rating.js/img/star-full-4316e6bb55ac4f8ce8c0ad554affe54ce2cd2e07b80b8e2af5305139e3f3e555.svg');
+  width: 24px;
+  height: 24px
+}
