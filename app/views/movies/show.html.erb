@@ -13,9 +13,14 @@
           <% end %>
         </div>
       <% else %>
-        <p>Users rating: N/A</p>
+        <p style="color:#FEB902;">Users rating: N/A</p>
       <% end %>
       <p><%= @movie.platform %></p>
+
+      <%= image_tag "netflix.png", id: "logo-default"%>
+      <%= image_tag "prime.png", id: "logo-default"%>
+      <%= image_tag "disneyplus.png", id: "logo-default"%>
+
     </div>
   </div>
 
@@ -38,7 +43,7 @@
               <span class="star"></span>
             <% end %>
           </div>
-          <p><%= review.rate %></p>
+
         </div>
         <div class="review-actions">
           <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
