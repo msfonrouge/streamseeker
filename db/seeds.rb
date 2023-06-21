@@ -579,6 +579,7 @@ charlot = Movie.create(
   length: 6,
   genre: "Romance",
   platform: "Netflix",
+  series: true
 )
 photo_charlot = URI.open("https://pics.filmaffinity.com/La_reina_Carlota_Una_historia_de_Los_Bridgerton_Miniserie_de_TV-917871806-large.jpg")
 charlot.photo.attach(io: photo_charlot, filename: "charlot.png", content_type: "image/png")
@@ -601,7 +602,7 @@ spider = Movie.create(
   description: "Después de reunirse con Gwen Stacy, el amigable vecino de tiempo completo de Brooklyn Spiderman, es lanzado a través del multiverso, donde se encuentra a un equipo de gente araña encomendada con proteger su mera existencia.",
   year: 2023,
   length: 150,
-  genre: "Accion/Aventura",
+  genre: "Acción/Aventura",
   platform: "Disaney+",
 )
 photo_spider = URI.open("https://pics.filmaffinity.com/Spider_Man_Cruzando_el_Multiverso-257260163-mmed.jpg")
@@ -613,7 +614,7 @@ deadpool = Movie.create(
   description: "Deadpool tiene que proteger a un mutante adolescente de Cable, un soldado del futuro genéticamente modificado, pero Deadpool no está solo: otros superhéroes igual de chiflados que él unen sus fuerzas contra el perverso Cable.",
   year: 2018,
   length: 119,
-  genre: "Accion/comedia",
+  genre: "Acción/comedia",
   platform: "HBO Max",
 )
 photo_deadpool = URI.open("https://m.media-amazon.com/images/I/91KnqW+HkEL.jpg")
@@ -834,7 +835,7 @@ principal_user.favorite(movie13, scope: :watchlist)
 
 principal_user.favorite(spider, scope: :domigueras)
 principal_user.favorite(movie20, scope: :domigueras)
-principal_user.favorite(demon, scope: :domigueras)
+principal_user.favorite(demon, scope: :dmigueras)
 principal_user.favorite(harry, scope: :domigueras)
 
 principal_user.favorite(shrek, scope: :chistosas)
@@ -843,3 +844,264 @@ principal_user.favorite(happy, scope: :chistosas)
 principal_user.favorite(movie15, scope: :chistosas)
 
 puts "seeds Charlie finish"
+puts "iniciando series"
+serie1 =
+  Movie.create(
+    title: "Dinastia",
+    description: "Dos de las familias más ricas de los Estados Unidos, los Carrington y los Colby, se disputan el control de su fortuna y sus hijos, y exponen la oscura vorágine de un mundo corrupto.",
+    year: 2017,
+    length: 4,
+    genre: "Drama",
+    platform: "Netflix",
+    series: true
+)
+photo_serie1 = URI.open("https://upload.wikimedia.org/wikipedia/en/a/a7/Dynasty_%282017%29_S4_poster.png")
+serie1.photo.attach(io: photo_serie1, filename: "serie1.png", content_type: "image/png")
+serie1.save!
+serie2 =
+  Movie.create(
+    title: "The Witcher",
+    description: "El brujo Geralt, un cazador de monstruos, trata de encontrar su lugar en un mundo en el que las personas suelen ser más malvadas que las bestias.",
+    year: 2019,
+    length: 4,
+    genre: "Fantasía",
+    platform: "Netflix",
+    series: true
+)
+photo_serie2 = URI.open("https://static.wikia.nocookie.net/netflix9203/images/3/32/The_Witcher_%28T2%2C_p%C3%B3ster_ingl%C3%A9s%29.jpg/revision/latest?cb=20221024210648&path-prefix=es")
+serie2.photo.attach(io: photo_serie2, filename: "serie2.png", content_type: "image/png")
+serie2.save!
+serie3 =
+  Movie.create(
+    title: "Euphoria",
+    description: "Un grupo de estudiantes de secundaria navega entre drogas, relaciones sexuales, traumas, redes sociales, amor y amistad.",
+    year: 2019,
+    length: 2,
+    genre: "Drama",
+    platform: "HBO Max",
+    series: true
+)
+photo_serie3 = URI.open("https://pics.filmaffinity.com/euphoria-465825702-mmed.jpg")
+serie3.photo.attach(io: photo_serie3, filename: "serie3.png", content_type: "image/png")
+serie3.save!
+serie4 =
+  Movie.create(
+    title: "The Last of Us",
+    description: "Joel y Ellie, dos personas conectadas por la brutalidad del mundo en el que viven, se ven obligados a enfrentarse a criaturas y asesinos despiadados, mientras viajan a través de un Estados Unidos posapocalíptico.",
+    year: 2023,
+    length: 4,
+    genre: "Fantasía",
+    platform: "HBO Max",
+    series: true
+)
+photo_serie4 = URI.open("https://m.media-amazon.com/images/M/MV5BZGUzYTI3M2EtZmM0Yy00NGUyLWI4ODEtN2Q3ZGJlYzhhZjU3XkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_QL75_UX190_CR0,0,190,281_.jpg")
+serie4.photo.attach(io: photo_serie4, filename: "serie4.png", content_type: "image/png")
+serie4.save!
+serie5 =
+  Movie.create(
+    title: "Game of Throne",
+    description: "Quien se sienta en el trono de hierro, controla los siete reinos. Game of trhones sigue la lucha de las casas nobles que codician tal poder",
+    year: 2011,
+    length: 8,
+    genre: "Drama",
+    platform: "HBO Max",
+    series: true
+)
+photo_serie5 = URI.open("https://mx.web.img2.acsta.net/pictures/19/04/03/18/26/4991295.jpg")
+serie5.photo.attach(io: photo_serie5, filename: "serie5.png", content_type: "image/png")
+serie5.save!
+serie6 =
+  Movie.create(
+    title: "Daredevil",
+    description: "Ciego desde que era joven, Matt Murdock lucha contra la injusticia de día como abogado y por la noche como Daredevil en Nueva York.",
+    year: 2015,
+    length: 4,
+    genre: "Acción",
+    platform: "Disney+",
+    series: true
+)
+photo_serie6 = URI.open("https://static.wikia.nocookie.net/marvel/images/b/b2/Marvel%27s_Daredevil_poster_Disney_Plus.png/revision/latest?cb=20220629132039&path-prefix=es")
+serie6.photo.attach(io: photo_serie6, filename: "serie6.png", content_type: "image/png")
+serie6.save!
+serie7 =
+  Movie.create(
+    title: "Rick and Morty",
+    description: "Después de haber estado desaparecido durante casi 20 años, Rick Sánchez llega de imprevisto a la puerta de la casa de su hija Beth y se va a vivir con ella y su familia utilizando el garaje como su laboratorio personal.",
+    year: 2013,
+    length: 4,
+    genre: "Fantasía",
+    platform: "HBO Max",
+    series: true
+)
+photo_serie7 = URI.open("https://es.web.img3.acsta.net/pictures/18/10/31/17/34/2348073.jpg")
+serie7.photo.attach(io: photo_serie7, filename: "serie7.png", content_type: "image/png")
+serie7.save!
+serie8 =
+  Movie.create(
+    title: "Loki",
+    description: "Loki se aleja de la sombra de su hermano para embarcarse en una aventura que se desarrolla tras los acontecimientos de Avengers: Endgame.",
+    year: 2022,
+    length: 4,
+    genre: "Acción",
+    platform: "Disney+",
+    series: true
+)
+photo_serie8 = URI.open("https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2021/03/loki-nuevo-cartel-2270891.jpg?tf=1200x")
+serie8.photo.attach(io: photo_serie8, filename: "serie8.png", content_type: "image/png")
+serie8.save!
+serie9 =
+  Movie.create(
+    title: "Vikingos",
+    description: "El vikingo Ragnar Lothbrok es un joven agricultor y hombre de familia que se siente frustrado por las políticas de Earl Haraldson, el conde del lugar que envía a sus invasores vikingos al este de los países bálticos y Rusia, cuyos residentes son pobres como los escandinavos.",
+    year: 2013,
+    length: 4,
+    genre: "Acción",
+    platform: "Netflix",
+    series: true
+)
+photo_serie9 = URI.open("https://www.formulatv.com/images/series/posters/700/748/dest_1.jpg")
+serie9.photo.attach(io: photo_serie9, filename: "serie9.png", content_type: "image/png")
+serie9.save!
+serie10 =
+  Movie.create(
+    title: "One Punch Man",
+    description: "El superhéroe más poderoso del mundo puede matar a cualquiera de un solo golpe, pero al no tener retos, lucha contra la depresión y el hastío.",
+    year: 2019,
+    length: 4,
+    genre: "Anime",
+    platform: "Netflix",
+    series: true
+)
+photo_serie10 = URI.open("https://static.wikia.nocookie.net/onepunchman/images/d/d9/OPM_Key_visual.png/revision/latest?cb=20230327234802&path-prefix=es")
+serie10.photo.attach(io: photo_serie10, filename: "serie10.png", content_type: "image/png")
+serie10.save!
+serie11 =
+  Movie.create(
+    title: "Grey's Anatomy",
+    description: "Un drama que se enfoca en el personaje de Merdith Grey, una integrante de un grupo de doctores jóvenes en el hospital de Seattle. La hija de una famosa cirujana, que lucha para mantener sus relaciones con sus colegas.",
+    year: 2029,
+    length: 4,
+    genre: "Drama",
+    platform: "Start+",
+    series: true
+)
+photo_serie11 = URI.open("https://mx.web.img3.acsta.net/pictures/22/10/06/21/38/5529680.jpg")
+serie11.photo.attach(io: photo_serie11, filename: "serie11.png", content_type: "image/png")
+serie11.save!
+serie12 =
+  Movie.create(
+    title: "El Zorro",
+    description: "El héroe enmascarado que de día es el aristócrata Diego de la Vega y de noche un espadachín justiciero en la California española.",
+    year: 1957,
+    length: 3,
+    genre: "Western",
+    platform: "Disney+",
+    series: true
+)
+photo_serie12 = URI.open("https://static.wikia.nocookie.net/doblaje/images/e/ef/El_Zorro-1957-1959-1a22.jpg/revision/latest?cb=20230210123638&path-prefix=es")
+serie12.photo.attach(io: photo_serie12, filename: "serie12.png", content_type: "image/png")
+serie12.save!
+serie13 =
+  Movie.create(
+    title: "Invasión Secreta",
+    description: "Cuando Nick Fury se entera de una invasión secreta de la Tierra por parte de una facción de Skrulls metamorfos, se une a sus aliados y juntos emprenden una carrera contrarreloj para frustrar una inminente invasión Skrull y salvar a la humanidad.",
+    year: 2023,
+    length: 3,
+    genre: "Ciencia Ficción",
+    platform: "Disney+",
+    series: true
+)
+photo_serie13 = URI.open("https://static.wikia.nocookie.net/doblaje/images/e/ef/El_Zorro-1957-1959-1a22.jpg/revision/latest?cb=20230210123638&path-prefix=es")
+serie13.photo.attach(io: photo_serie13, filename: "serie13.png", content_type: "image/png")
+serie13.save!
+serie14 =
+  Movie.create(
+    title: "Black Mirror",
+    description: "El lado oscuro de la era tecnológica en la que se vive: la paranoia de ser vigilados como en un panóptico, los usos terroristas de las nuevas herramientas y su relación con la experiencia cotidiana.",
+    year: 2011,
+    length: 3,
+    genre: "Ciencia Ficción",
+    platform: "Netflix",
+    series: true
+)
+photo_serie14 = URI.open("https://images.justwatch.com/poster/239582769/s718/black-mirror.%7Bformat%7D")
+serie14.photo.attach(io: photo_serie14, filename: "serie14.png", content_type: "image/png")
+serie14.save!
+serie15 =
+  Movie.create(
+    title: "Sense8",
+    description: "Ocho desconocidos tienen una conexión y comparten sentimientos y habilidades a medida que tratan de evitar su exterminio.",
+    year: 2015,
+    length: 2,
+    genre: "Drama",
+    platform: "Netflix",
+    series: true
+)
+photo_serie15 = URI.open("https://static.wikia.nocookie.net/sensate/images/3/39/Sense8_S1Poster_01.jpg/revision/latest?cb=20180616215114&path-prefix=es")
+serie15.photo.attach(io: photo_serie15, filename: "serie15.png", content_type: "image/png")
+serie15.save!
+serie16 =
+  Movie.create(
+    title: "The Vampire Diaries",
+    description: "Pocos meses después de que sus padres fallecieron en un accidente automovilístico, Elena Gilbert y su hermano, Jeremy tratan de mitigar la pena de su pérdida. Para Elena, una chica que fue muy popular y que está involucrada en su colegio y con sus amigos, le es difícil esconder su tristeza de los demás.",
+    year: 2009,
+    length: 8,
+    genre: "Drama",
+    platform: "HBO Max",
+    series: true
+)
+photo_serie16 = URI.open("https://m.media-amazon.com/images/I/91F4amRqOEL._AC_UF1000,1000_QL80_.jpg")
+serie16.photo.attach(io: photo_serie16, filename: "serie16.png", content_type: "image/png")
+serie16.save!
+serie17 =
+  Movie.create(
+    title: "Peaky Blinders",
+    description: "Gran Bretaña vive la posguerra. Los soldados regresan, se acuñan nuevas revoluciones y nacen bandas criminales en una nación agitada. En Birmingham, una pandilla de gánsters callejeros asciende hasta convertirse en los reyes de la clase obrera.",
+    year: 2013,
+    length: 6,
+    genre: "Drama",
+    platform: "Netflix",
+    series: true
+)
+photo_serie17 = URI.open("https://elargentinodiario.com.ar/wp-content/uploads/2022/07/peaky-blinders.jpg")
+serie17.photo.attach(io: photo_serie17, filename: "serie17.png", content_type: "image/png")
+serie17.save!
+serie18 =
+  Movie.create(
+    title: "Stranger Things",
+    description: "Cuando un niño desaparece, sus amigos, la familia y la policía se ven envueltos en una serie de eventos misteriosos al tratar de encontrarlo. Su ausencia coincide con el avistamiento de una criatura terrorífica y la aparición de una extraña niña.",
+    year: 2016,
+    length: 4,
+    genre: "Ciencia Ficción",
+    platform: "Netflix",
+    series: true
+)
+photo_serie18 = URI.open("https://static.wikia.nocookie.net/strangerthings/images/0/09/Stranger_Things_Season_1.png/revision/latest?cb=20170110205004&path-prefix=es")
+serie18.photo.attach(io: photo_serie18, filename: "serie18.png", content_type: "image/png")
+serie18.save!
+serie19 =
+  Movie.create(
+    title: "Amor y Muerte",
+    description: "se centra en el terrible asesinato de Betty Gore, ocurrido en Texas en 1980, por parte de Candy Montgomery.",
+    year: 2023,
+    length: 4,
+    genre: "Crimen",
+    platform: "HBO Max",
+    series: true
+)
+photo_serie19 = URI.open("https://pics.filmaffinity.com/love_death-796244921-mmed.jpg")
+serie19.photo.attach(io: photo_serie19, filename: "serie19.png", content_type: "image/png")
+serie19.save!
+serie20 =
+  Movie.create(
+    title: "S.W.A.T",
+    description: "Un teniente de policía se debate entre la fidelidad al cuerpo y la vinculación que mantiene con los amigos junto a los que creció en las calles más duras de Los Ángeles, para quienes, a menudo, la policía es el enemigo.",
+    year: 2017,
+    length: 6,
+    genre: "Acción",
+    platform: "Star+",
+    series: true
+)
+photo_serie20 = URI.open("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRg6MXUIHmjSYa_M8GpHDjy1cobFlLxyN4Y9RXfWBZWQWph1IbC")
+serie20.photo.attach(io: photo_serie20, filename: "serie20.png", content_type: "image/png")
+serie20.save!
