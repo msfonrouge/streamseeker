@@ -15,12 +15,25 @@
       <% else %>
         <p style="color:#FEB902;">Users rating: N/A</p>
       <% end %>
-      <p><%= @movie.platform %></p>
 
-      <%= image_tag "netflix.png", id: "logo-default"%>
-      <%= image_tag "prime.png", id: "logo-default"%>
-      <%= image_tag "disneyplus.png", id: "logo-default"%>
-
+      <%# <%= @movie.platform %>
+        <%# <%= link_to "", "https://netflix.com" do %>
+      <% if @movie.platform.include?("Netflix") %>
+       <a href="http://netflix.com"><%= image_tag "netflix2.png", id: "logo-default"%></a>
+      <% end %>
+       <%# <% end %>
+      <% if @movie.platform.include?("Amazon") %>
+        <a href="http://primevideo.com"><%= image_tag "prime.png", id: "logo-default"%></a>
+      <% end %>
+      <% if @movie.platform.include?("Disney") %>
+       <a href="http://disneyplus.com"><%= image_tag "disneyplus.png", id: "logo-default"%></a>
+      <% end %>
+      <% if @movie.platform.include?("HBO") %>
+       <a href="http://hbomax.com"><%= image_tag "hbo4.png", id: "logo-default"%></a>
+      <% end %>
+      <% if @movie.platform.include?("Show") %>
+       <a href="http://sho.com"><%= image_tag "show.png", id: "logo-default"%></a>
+      <% end %>
     </div>
   </div>
 
