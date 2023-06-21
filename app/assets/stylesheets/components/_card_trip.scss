@@ -4,6 +4,7 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     width: 200px;
     border-radius: 8px;
+    position: relative;
 }
 
 
@@ -41,9 +42,25 @@
     white-space: nowrap;
 }
 
-.card-trip-infos .card-trip-user {
+.watchlist, .heart {
     position: absolute;
-    right: 16px;
-    top: -20px;
-    width: 40px;
+    font-size: 15px;
+    color: #FFF;
+    background-color: #161616;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 5px;
+}
+
+.card-trip .watchlist {
+    left: 5px;
+    //color: #FF7F50;
+}
+
+.card-trip .heart {
+    right: 5px;
 }
