@@ -1,7 +1,3 @@
-<div class="m-5 text-center">
-  <h1 class="display-5 fw-bold">¡Bienvenido!</h1>
-  <p>¿Que pelicula deseas encontrar?</p>
-</div>
 <div class="container navbar mt-5">
   <ul class="list-group list-group-horizontal gap-0">
     <a>
@@ -31,12 +27,12 @@
         <% if movie.photo.attached? %>
           <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
         <% end %>
-        <div class="card-trip-infos col">
-          <div>
-            <h2><%= movie.title %></h2>
-            <p><%= movie.year %></p>
+          <div class="card-trip-infos col">
+            <div>
+              <h2><%= movie.title %></h2>
+              <p><%= movie.year %></p>
+            </div>
           </div>
-        </div>
       <% end %>
     </div>
   <% end %>

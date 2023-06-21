@@ -1,5 +1,5 @@
 class WatchlistsController < ApplicationController
-  before_action :set_user, only: [:index, :new, :edit, :index]
+  before_action :set_user, only: [:index, :new, :edit]
 
   def index
     @watchlists = @user.watchlists

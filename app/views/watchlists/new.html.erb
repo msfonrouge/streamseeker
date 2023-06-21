@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class= "col-12 col-sm-6">
+    <br>
+     <br>
       <%= simple_form_for(@watchlist) do |f| %>
-        <%= f.input :title %>
-        <%= f.button :submit %>
+        <%= f.input :title, :label => 'Nueva Lista' %>
+        <%= f.button :submit, "Crear", class: "default1_button" %>
       <% end %>
+      
+  
