@@ -1,7 +1,8 @@
 class MoviesController < ApplicationController
+  before_action :authenticate_user!, only: :toggle_favorite
 
-  before_action :set_movies, only: [:show]
-  before_action :set_user, only: [:show, :index]
+  before_action :set_movies, only: [:show, :toggle_favorite]
+  before_action :set_user, only: [:show, :index, :toggle_favorite]
   def index
 
     if params[:query].present?
@@ -17,8 +18,11 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
     @review = Review.new
+  end
+
+  def toggle_favorite
+    @user.favorited?(@movie)  ? @user.unfavorite(@movie) : @user.favorite(@movie)
   end
 
   private

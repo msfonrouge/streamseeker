@@ -53,18 +53,17 @@
       </div>
     <% end %>
   <% else %>
-    <% @movies.each do |movie| %>
-      <div class="card-trip m-3">
-        <%= link_to movies_path, class: "watchlist" do %>
-          <i class="fa-solid fa-bookmark"></i>
-          <% current_user.favorite(movie) %>
-        <% end %>
-        <%= link_to movies_path, class: "heart" do %>
-          <i class="fa-solid fa-heart"></i>
-        <% end %>
-        <%= link_to movie, class: 'clear-link' do %>
-          <% if movie.photo.attached? %>
-            <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
+  <% @movies.each do |movie| %>
+  <div class="card-trip m-3">
+    <%= link_to toggle_favorite_movie_path(movie), data: { 'turbo-method' => :post },class: "watchlist" do %>
+      <i class="fa-solid fa-bookmark"></i>
+    <% end %>
+    <%= link_to movies_path, class: "heart" do %>
+      <i class="fa-solid fa-heart"></i>
+    <% end %>
+    <%= link_to movie, class: 'clear-link' do %>
+      <% if movie.photo.attached? %>
+        <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
           <% end %>
           <div class="card-trip-infos">
             <div>
