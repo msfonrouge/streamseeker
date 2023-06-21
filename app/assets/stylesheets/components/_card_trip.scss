@@ -36,10 +36,25 @@
     position: relative;
 }
 
-.card-trip .watchlist {
+.watchlist, .heart {
     position: absolute;
-    top: -10px;
-    left: 10px;
-    font-size: 30px;
-    color: #FF7F50;
+    font-size: 15px;
+    color: #FFF;
+    background-color: #161616;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 5px;
+}
+
+.card-trip .watchlist {
+    left: 5px;
+    //color: #FF7F50;
+}
+
+.card-trip .heart {
+    right: 5px;
 }

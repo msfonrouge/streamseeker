@@ -24,7 +24,11 @@
   <% @movies.each do |movie| %>
     <div class="card-trip m-3">
       <%= link_to movies_path, class: "watchlist" do %>
-      <i class="fa-regular fa-bookmark"></i>
+        <i class="fa-solid fa-bookmark"></i>
+        <% current_user.favorite(movie) %>
+      <% end %>
+      <%= link_to movies_path, class: "heart" do %>
+        <i class="fa-solid fa-heart"></i>
       <% end %>
       <%= link_to movie, class: 'clear-link' do %>
         <% if movie.photo.attached? %>

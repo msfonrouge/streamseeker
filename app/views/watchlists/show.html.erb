@@ -7,7 +7,7 @@
         <%= link_to edit_watchlist_path(@watchlist), class: "default1_button" do %>
           <i class="fas fa-pencil-alt text-black"></i>
         <% end %>
-        <%= link_to watchlist_path(@watchlist), class: "default1_button", data: {turbo_method: :delete, turbo_confirm: "¿Está seguro de que quiere borrar esta lista?"} do %>
+        <%= link_to watchlist_path(@watchlist), class: "default1_button", data: {turbo_method: :delete, turbo_confirm: "¿Está seguro de que quiere borrar esta lista?", turbo_action: "advance", turbo_frame: "_top"} do %>
           <i class= "far fa-trash-alt text-black"></i>
         <% end %>
       </div>
@@ -15,27 +15,27 @@
   <% end %>
   <% if @watchlist.title == "Mis favoritas" %>
     <% movies = @watchlist.user.all_favorited%>
-    <% elsif @watchlist.title == "Watchlist" %>
+  <% elsif @watchlist.title == "Watchlist" %>
     <% movies = @watchlist.user.all_favorited(scope: :watchlist) %>
-    <% else %>
+  <% else %>
     <% others = @watchlist.title.downcase.gsub(" ", "_") %>
     <% movies = @watchlist.user.all_favorited(scope: others) %>
-    <% end %>
-    <div class="d-flex justify-content-center flex-wrap">
-      <% movies.each do |movie| %>
-        <div class="card-trip m-3">
-          <%= link_to movie, class: 'clear-link' do %>
-            <% if movie.photo.attached? %>
-              <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
-            <% end %>
-            <div class="card-trip-infos col">
-              <div>
-                <h2><%= movie.title %></h2>
-                <p><%= movie.year %></p>
-              </div>
-            </div>
+  <% end %>
+  <div class="d-flex justify-content-center flex-wrap">
+    <% movies.each do |movie| %>
+      <div class="card-trip m-3">
+        <%= link_to movie, class: 'clear-link' do %>
+          <% if movie.photo.attached? %>
+            <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
           <% end %>
-        </div>
-      <% end %>
-    </div>
+          <div class="card-trip-infos col">
+            <div>
+              <h2><%= movie.title %></h2>
+              <p><%= movie.year %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
+</div>
