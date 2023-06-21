@@ -38,8 +38,13 @@
   </div>
 
 
+    <%= simple_form_for([@movie, @review]) do |f| %>
+      <%= f.input :content, :label => 'Comentar' %>
+      <%= f.input :rate, collection: (1..5).to_a, label: "Califica tu experiencia", input_html: {data: {controller: "star-rating"}} %>
+      <%= f.button :submit, "Crear Reseña", class: "default1_button" %>
+    <% end %>
   <div class="card-body p-4">
-    <h4 class="mb-0">Comentarios</h4>
+
     <p class="fw-light mb-4 pb-2">Comentarios recientes por usuarios</p>
       <% @movie.reviews.each do |review| %>
         <div class="review">
@@ -63,10 +68,5 @@
           <a href="#">Delete <i class="far fa-trash-alt"></i></a>
         </div>
   </div>
-    <% end %>
-    <%= simple_form_for([@movie, @review]) do |f| %>
-      <%= f.input :content, :label => 'Comentar' %>
-      <%= f.input :rate, collection: (1..5).to_a, label: "Califica tu experiencia", input_html: {data: {controller: "star-rating"}} %>
-      <%= f.button :submit, "Crear Reseña", class: "default1_button" %>
     <% end %>
 </div>
