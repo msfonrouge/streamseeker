@@ -1,18 +1,17 @@
 <div class="container navbar mt-5">
   <ul class="list-group list-group-horizontal gap-0">
     <a>
-      <li class="list-group-item border-0 p-2">Todas</li>
+      <%= link_to "Todas", movies_path(todas: true), class: ((params[:todas]== "true" ? "default1_button" : "list-group-item border-0 p-2")), data: { turbo_action: "advance", turbo_frame: "_top"}%>
     </a>
     <a>
-      <li class="list-group-item border-0 p-2">Películas</li>
+      <%= link_to "Peliculas", movies_path(pelicula: true), class: ((params[:pelicula]== "true" ? "default1_button" : "list-group-item border-0 p-2")), data: { turbo_action: "advance", turbo_frame: "_top"}%>
     </a>
     <a>
-      <li class="list-group-item border-0 p-2">Series</li>
+      <%= link_to "Series", movies_path(series: true), class: ((params[:series]== "true" ? "default1_button" : "list-group-item border-0 p-2")), data: { turbo_action: "advance", turbo_frame: "_top"}%>
     </a>
   </ul>
   <ul class="list-group list-group-horizontal">
-    <li class="list-group-item border-0 p-2">
-      Año <i class="fa-sharp fa-regular fa-chevron-down"></i>
+    <li class="list-group-item border-0 p-2">  Año <i class="fa-sharp fa-regular fa-chevron-down"></i>
     </li>
     <li class="list-group-item border-0 p-2">Género <i class="fa-sharp fa-regular fa-chevron-down"></i>
     </li>
@@ -21,37 +20,59 @@
   </ul>
 </div>
 <div class="container d-flex justify-content-center flex-wrap">
-  <% @movies.each do |movie| %>
-
-
-
-    <div class="card-trip m-3">
-
-
-      <%= link_to toggle_favorite_movie_path(movie.id), data: { 'turbo-method' => :post },class: "watchlist" do %>
-  <i class="fa-solid fa-bookmark"></i>
-<% end %>
-
-
-
-
-
-
-
-      <%= link_to movies_path, class: "heart" do %>
-        <i class="fa-solid fa-heart"></i>
-      <% end %>
-      <%= link_to movie, class: 'clear-link' do %>
-        <% if movie.photo.attached? %>
-          <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
+  <% if params[:series] == "true" %>
+    <% @movies.where(series: true).each do |movie| %>
+      <div class="card-trip m-3">
+        <%= link_to movie, class: 'clear-link' do %>
+          <% if movie.photo.attached? %>
+            <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
+          <% end %>
+            <div class="card-trip-infos col">
+              <div>
+                <h2><%= movie.title %></h2>
+                <p><%= movie.year %></p>
+              </div>
+            </div>
         <% end %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= movie.title %></h2>
-            <p><%= movie.year %></p>
+      </div>
+    <% end %>
+  <% elsif params[:pelicula] == "true" %>
+    <% @movies.where(series: false).order(title: :desc).each do |movie| %>
+      <div class="card-trip m-3">
+        <%= link_to movie, class: 'clear-link' do %>
+          <% if movie.photo.attached? %>
+            <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
+          <% end %>
+            <div class="card-trip-infos col">
+              <div>
+                <h2><%= movie.title %></h2>
+                <p><%= movie.year %></p>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+  <% @movies.each do |movie| %>
+  <div class="card-trip m-3">
+    <%= link_to toggle_favorite_movie_path(movie), data: { 'turbo-method' => :post },class: "watchlist" do %>
+      <i class="fa-solid fa-bookmark"></i>
+    <% end %>
+    <%= link_to movies_path, class: "heart" do %>
+      <i class="fa-solid fa-heart"></i>
+    <% end %>
+    <%= link_to movie, class: 'clear-link' do %>
+      <% if movie.photo.attached? %>
+        <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
+          <% end %>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= movie.title %></h2>
+              <p><%= movie.year %></p>
+            </div>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>

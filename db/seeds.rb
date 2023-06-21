@@ -1395,22 +1395,25 @@ markers_maximo_ver_con_amigos =
     movie_id: movie15.id
   )
 
+Watchlist.create(title: "Mis favoritas", user_id: principal_user.id)
 principal_user.favorite(movie9)
 principal_user.favorite(top_gun)
 principal_user.favorite(movie14)
 principal_user.favorite(movie2)
 
+Watchlist.create(title: "Watchlist", user_id: principal_user.id)
 principal_user.favorite(movie1, scope: :watchlist)
 principal_user.favorite(movie4, scope: :watchlist)
 principal_user.favorite(movie6, scope: :watchlist)
 principal_user.favorite(movie13, scope: :watchlist)
 
+Watchlist.create(title: "Domingueras", user_id: principal_user.id)
+principal_user.favorite(spider, scope: :domingueras)
+principal_user.favorite(movie20, scope: :domingueras)
+principal_user.favorite(demon, scope: :domingueras)
+principal_user.favorite(harry, scope: :domingueras)
 
-principal_user.favorite(spider, scope: :domigueras)
-principal_user.favorite(movie20, scope: :domigueras)
-principal_user.favorite(demon, scope: :dmigueras)
-principal_user.favorite(harry, scope: :domigueras)
-
+Watchlist.create(title: "Chistosas", user_id: principal_user.id)
 principal_user.favorite(shrek, scope: :chistosas)
 principal_user.favorite(deadpool, scope: :chistosas)
 principal_user.favorite(happy, scope: :chistosas)
@@ -1584,7 +1587,7 @@ serie13 =
     platform: "Disney+",
     series: true
 )
-photo_serie13 = URI.open("https://static.wikia.nocookie.net/doblaje/images/e/ef/El_Zorro-1957-1959-1a22.jpg/revision/latest?cb=20230210123638&path-prefix=es")
+photo_serie13 = URI.open("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRg6MXUIHmjSYa_M8GpHDjy1cobFlLxyN4Y9RXfWBZWQWph1IbC")
 serie13.photo.attach(io: photo_serie13, filename: "serie13.png", content_type: "image/png")
 serie13.save!
 serie14 =
