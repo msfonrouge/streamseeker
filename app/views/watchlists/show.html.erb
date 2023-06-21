@@ -10,6 +10,7 @@
         <%= link_to watchlist_path(@watchlist), class: "default1_button", data: {turbo_method: :delete, turbo_confirm: "¿Está seguro de que quiere borrar esta lista?"} do %>
           <i class= "far fa-trash-alt text-black"></i>
         <% end %>
+      <%= link_to "Atras", watchlists_path, class: "default1_button", data: { turbo_action: "advance", turbo_frame: "_top"}%>
       </div>
     <% end %>
   <% end %>
