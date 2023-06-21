@@ -29,7 +29,7 @@
   <% if @movies_random %>
     <% @movies_random.each do |movie| %>
       <%= link_to movie_path(movie) do %>
-        <div class="card-trip m-3">
+      <div class="card-trip m-3">
         <div class = "card-color text-white">
           <% if movie.photo.attached? %> <%= cl_image_tag movie.photo.key, height:
             300, width: 200, crop: :scale, class:"card-img-top"%>
@@ -41,7 +41,7 @@
             </div>
           </div>
         </div>
-        </div>
+      </div>
       <% end %>
     <% end %>
   <% elsif @movies.size > 0 %>
