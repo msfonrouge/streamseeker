@@ -4,6 +4,7 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     width: 200px;
     border-radius: 8px;
+    position: relative;
 }
 
 .card-trip>img {
@@ -35,9 +36,10 @@
     position: relative;
 }
 
-.card-trip-infos .card-trip-user {
+.card-trip .watchlist {
     position: absolute;
-    right: 16px;
-    top: -20px;
-    width: 40px;
+    top: -10px;
+    left: 10px;
+    font-size: 30px;
+    color: #FF7F50;
 }

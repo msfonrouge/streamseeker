@@ -14,7 +14,7 @@
     <% end %>
   <% end %>
   <% if @watchlist.title == "Mis favoritas" %>
-    <% movies = @watchlist.user.all_favorited  %>
+    <% movies = @watchlist.user.all_favorited%>
     <% elsif @watchlist.title == "Watchlist" %>
     <% movies = @watchlist.user.all_favorited(scope: :watchlist) %>
     <% else %>
