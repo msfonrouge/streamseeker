@@ -1,0 +1,30 @@
+
+  <% @movie.reviews.each do |review| %>
+    <div class="review">
+      <% if review.user.photo.attached? %>
+        <%= cl_image_tag review.user.photo.key, gravity: :face, class: "avatar" %>
+        <% else %>
+            <%= image_tag "https://pps.whatsapp.net/v/t61.24694-24/352954811_652637243033971_6168741299642512531_n.jpg?stp=dst-jpg_s96x96&ccb=11-4&oh=01_AdQg-7-BE0VZf-uTqRYKowHYek4KDt3qPoebhmlbCaohvA&oe=649B94DA", class: "avatar", alt: "fallback avatar" %>
+      <% end %>
+      <div class="review-content">
+        <p><small>by <%= review.user.email %></small></p>
+        <p><%= review.content %></p>
+        <div class="stars-container">
+          <% review.rate.times do %>
+            <span class="star"></span>
+          <% end %>
+        </div>
+        <p><%= review.rate %></p>
+      </div>
+      <div class="review-actions">
+        <a href="#">Edit <i class="fas fa-pencil-alt"></i></a>
+        <a href="#">Delete <i class="far fa-trash-alt"></i></a>
+      </div>
+    </div>
+  <% end %>
+  <%= simple_form_for([@movie, @review]) do |f| %>
+    <%= f.input :content %>
+    <%= f.input :rate, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+    <%= f.button :submit, class: "default1_button" %>
+  <% end %>
+</div>
