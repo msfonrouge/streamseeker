@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :movies, only: [:index, :show] do
+  resources :movies, only: %i[index show] do
     resources :reviews, only: [:create]
-    resources :markers
+    member { post "toggle_favorite", to: "movies#toggle_favorite" }
   end
   resources :watchlists
 end
