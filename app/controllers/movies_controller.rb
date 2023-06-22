@@ -7,18 +7,47 @@ class MoviesController < ApplicationController
 
     if params[:query].present?
       @movies = Movie.search_all(params[:query])
+      respond_to do |format|
+        format.html
+        format.text { render partial: "shared/list", locals: { movies: @movies }, formats: [:html] }
+      end
+    elsif params[:año].present? || params[:genero].present? || params[:plataforma].present?
+      filtro
     else
       @movies = Movie.all
     end
     # redirect_to movies_path(query: params[:query])
-    respond_to do |format|
-      format.html
-      format.text { render partial: "shared/list", locals: { movies: @movies }, formats: [:html] }
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.text { render partial: "shared/list", locals: { movies: @movies }, formats: [:html] }
+    # end
+
+    # @movies = Movie.where(year: params[:año]) if params[:año].present?
   end
 
   def show
     @review = Review.new
+  end
+
+  def filtro
+    a = params[:año].present?
+    g = params[:genero].present?
+    pl = params[:plataforma].present?
+    if !a && !g && pl
+      @movies = Movie.where(platform: params[:plataforma])
+    elsif !a && g && !pl
+      @movies = Movie.where(genre: params[:genero])
+    elsif !a && g && pl
+      @movies = Movie.where(genre: params[:genero]).where(platform: params[:plataforma])
+    elsif a && !g && !pl
+      @movies = Movie.where(year: params[:año])
+    elsif a && !g && pl
+      @movies = Movie.where(year: params[:año]).where(platform: params[:plataforma])
+    elsif a && g && !pl
+      @movies = Movie.where(year: params[:año]).where(genre: params[:genero])
+    elsif a && g && pl
+      @movies = Movie.where(year: params[:año]).where(genre: params[:genero]).where(platform: params[:plataforma])
+    end
   end
 
   def toggle_favorite
