@@ -1,4 +1,4 @@
-<div class="container navbar mt-5">
+<div class="container navbar mt-5 justify-content-around">
   <ul class="list-group list-group-horizontal gap-0">
     <a>
       <%= link_to "Todas", movies_path(todas: true), class: ((params[:todas]== "true" ? "default1_button" : "list-group-item border-0 p-2")), data: { turbo_action: "advance", turbo_frame: "_top"}%>
@@ -14,17 +14,18 @@
   <% movie.genre %>
   <% end %>
   <% @platforms = ["Star+", "Netflix", "Disney+", "HBO Max", "Amazon Prime"] %>
-  <div>
+  <div class="dropdown mt-3">
     <%= form_with(url: movies_path, method: :get, class: "mb-4") do |f| %>
       <ul class="list-group list-group-horizontal">
-          <li class="list-group-item border-0 p-2"><%= f.select :año, ([""] + (1960..2023).to_a), label: false %>Año<i class="fa-sharp fa-regular fa-chevron-down"></i>
-          <li class="list-group-item border-0 p-2"><%= f.select :genero, ([""] + @genres.uniq), label: false %>Género<i class="fa-sharp fa-regular fa-chevron-down"></i>
-          <li class="list-group-item border-0 p-2"><%= f.select :plataforma, ([""] + @platforms), label: false %>Plataforma<i class="fa-sharp fa-regular fa-chevron-down"></i>
-          <%= f.button :submit %>
+          <li class="btn btn-primary"><%= f.select :año, ([""] + (1960..2023).to_a), label: false %>&nbsp Año
+          <li class="btn btn-primary"><%= f.select :genero, ([""] + @genres.uniq), label: false %>&nbsp Género
+          <li class="btn btn-primary"><%= f.select :plataforma, ([""] + @platforms), label: false %>&nbsp Plataforma &nbsp
+          <%= f.button :submit, class:"default1_button" %>
       </ul>
     <% end %>
   </div>
 </div>
+
 
 <div class="container d-flex justify-content-center flex-wrap">
   <% if params[:series] == "true" %>

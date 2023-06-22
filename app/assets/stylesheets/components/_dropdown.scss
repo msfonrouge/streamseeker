@@ -1,0 +1,29 @@
+.dropdown {
+  background-color: none;
+  border: none;
+}
+
+.btn-primary
+{background-color: none;}
+
+select {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-family: sans-serif;
+  outline: 0;
+  background: #161616;
+  color: #fff;
+  border: #FBC500;
+  padding: 4px;
+  border-radius: 9px;
+  width: 100px;
+}
+
+select-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
