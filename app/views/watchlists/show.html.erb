@@ -4,7 +4,7 @@
     <%= turbo_frame_tag frame_id, class: "d-flex justify-content-between pt-5" do %>
       <h2><%= @watchlist.title %></h2>
       <div class="review-actions">
-        <%= link_to edit_watchlist_path(@watchlist), class: "default1_button" do %>
+        <%= link_to edit_watchlist_path(@watchlist), class: "default1_button", data: { turbo_action: "advance", turbo_frame: "_top"} do %>
           <i class="fas fa-pencil-alt text-black"></i>
         <% end %>
         <%= link_to watchlist_path(@watchlist), class: "default1_button", data: {turbo_method: :delete, turbo_confirm: "¿Está seguro de que quiere borrar esta lista?", turbo_action: "advance", turbo_frame: "_top"} do %>
