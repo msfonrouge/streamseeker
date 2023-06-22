@@ -4,7 +4,7 @@
       <%= link_to "Todas", movies_path(todas: true), class: ((params[:todas]== "true" ? "default1_button" : "list-group-item border-0 p-2")), data: { turbo_action: "advance", turbo_frame: "_top"}%>
     </a>
     <a>
-      <%= link_to "Peliculas", movies_path(pelicula: true), class: ((params[:pelicula]== "true" ? "default1_button" : "list-group-item border-0 p-2")), data: { turbo_action: "advance", turbo_frame: "_top"}%>
+      <%= link_to "Películas", movies_path(pelicula: true), class: ((params[:pelicula]== "true" ? "default1_button" : "list-group-item border-0 p-2")), data: { turbo_action: "advance", turbo_frame: "_top"}%>
     </a>
     <a>
       <%= link_to "Series", movies_path(series: true), class: ((params[:series]== "true" ? "default1_button" : "list-group-item border-0 p-2")), data: { turbo_action: "advance", turbo_frame: "_top"}%>
