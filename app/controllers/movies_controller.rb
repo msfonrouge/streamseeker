@@ -7,22 +7,17 @@ class MoviesController < ApplicationController
 
     if params[:query].present?
       @movies = Movie.search_all(params[:query])
-      respond_to do |format|
-        format.html
-        format.text { render partial: "shared/list", locals: { movies: @movies }, formats: [:html] }
-      end
     elsif params[:año].present? || params[:genero].present? || params[:plataforma].present?
       filtro
-    else
+    elsif params[:todas].present? || params[:series].present? || params[:pelicula]
       @movies = Movie.all
+    else
+      @movies = []
     end
-    # redirect_to movies_path(query: params[:query])
-    # respond_to do |format|
-    #   format.html
-    #   format.text { render partial: "shared/list", locals: { movies: @movies }, formats: [:html] }
-    # end
-
-    # @movies = Movie.where(year: params[:año]) if params[:año].present?
+    respond_to do |format|
+      format.html
+      format.text { render partial: "shared/list", locals: { movies: @movies }, formats: [:html] }
+    end
   end
 
   def show

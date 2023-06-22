@@ -32,7 +32,6 @@ class WatchlistsController < ApplicationController
     @watchlist = Watchlist.find(params[:id])
   end
 
-  #PATCH restaurant update
   def update
     @watchlist = Watchlist.find(params[:id])
     @watchlist.update(watchlist_params)
