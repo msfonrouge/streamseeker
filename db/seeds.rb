@@ -1156,7 +1156,7 @@ shrek =
     year: 2001,
     length: 90,
     genre: "Fantasía",
-    platform: "HBO Max"
+    platform: "HBO Max, Netflix"
   )
 photo_shrek =
   URI.open("https://pics.filmaffinity.com/Shrek-903764423-large.jpg")
