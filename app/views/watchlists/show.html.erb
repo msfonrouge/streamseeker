@@ -25,7 +25,7 @@
   <div class="d-flex justify-content-center flex-wrap">
     <% movies.each do |movie| %>
       <div class="card-trip m-3">
-<%= link_to unfavorite_movie_path(movie), class: "default1_button post", data: {turbo_method: :post, turbo_confirm: "¿Está seguro de que quiere borrar esta película?", turbo_action: "advance", turbo_frame: "_top"} do %>
+<%= link_to unfavorite_movie_path(movie), class: "default1_button delete", data: {turbo_method: :post, turbo_confirm: "¿Está seguro de que quiere borrar esta película?", turbo_action: "advance", turbo_frame: "_top"} do %>
   <i class= "far fa-trash-alt text-black"></i>
 <% end %>
         <%= link_to movie, class: 'clear-link' do %>

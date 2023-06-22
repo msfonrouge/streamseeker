@@ -51,10 +51,10 @@ class WatchlistsController < ApplicationController
   end
 
   def unfavorite
-    @watchlist = Watchlist.find(params[:id])
+    #@watchlist = Watchlist.find(params[:id])
     movie = Movie.find(params[:id])
     @user.unfavorite(movie)
-    redirect_to watchlists_path(@watchlist.id), status: :see_other
+    redirect_to watchlists_path, status: :see_other
   end
 
   private
