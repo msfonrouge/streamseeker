@@ -52,9 +52,11 @@ class WatchlistsController < ApplicationController
   end
 
   def unfavorite
-    movie_id = params[:id]
-    @favorite = Favorite.where(user_id: @user.id, movie_id: @movie.id)
-    @favorite.destroy
+    movie = Movie.find(params[:id])
+    @user.unfavorite(movie)
+
+    #@favorite = Favorite.where(user_id: @user.id, movie_id: movie_id)
+    #@favorite.destroy
     #@user.unfavorite(@movie.id)
     redirect_to movies_path, status: :see_other
   end

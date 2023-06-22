@@ -66,7 +66,7 @@
     <%= link_to toggle_favorite_movie_path(movie), data: {'turbo-method' => :post },class: "watchlist" do %>
       <i data-favorites-target="heart" class="fa-solid fa-bookmark"></i>
     <% end %>
-    <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites.toggleHeartButton"},class: "heart" do %>
+    <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites#toggleHeartButton"},class: "heart" do %>
     <i  class="fa-solid fa-heart"></i>
     <% end %>
     <%= link_to movie, class: 'clear-link' do %>
