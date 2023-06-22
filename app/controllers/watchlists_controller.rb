@@ -1,5 +1,5 @@
 class WatchlistsController < ApplicationController
-  before_action :set_user, only: %i[index new edit]
+  before_action :set_user, only: %i[index new edit unfavorite]
 
   def index
     @watchlists = @user.watchlists
@@ -48,6 +48,14 @@ class WatchlistsController < ApplicationController
     @watchlist = Watchlist.find(params[:id])
     @watchlist.destroy
     redirect_to watchlists_path, status: :see_other
+  end
+
+  def unfavorite
+    movie_id = params[:id]
+    @favorite = Favorite.where(user_id: @user.id, movie_id: @movie.id)
+    @favorite.destroy
+    #@user.unfavorite(@movie.id)
+    redirect_to movies_path, status: :see_other
   end
 
   private

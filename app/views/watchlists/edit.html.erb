@@ -1,7 +1,7 @@
 <%= simple_form_for(@watchlist) do |f| %>
   <% frame_id =  dom_id(@watchlist, "title_turbo_frame") %>
   <%= turbo_frame_tag frame_id do %>
-    <%= f.input :title %>
+    <%= f.input :title, label: false %>
     <div class="review-actions">
       <%= button_tag type: 'submit', class: 'default1_button' do %>
         <i class="fa-solid fa-check"></i>
