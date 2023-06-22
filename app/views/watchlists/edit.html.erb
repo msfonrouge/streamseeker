@@ -1,15 +1,19 @@
-<%= simple_form_for(@watchlist) do |f| %>
-  <% frame_id =  dom_id(@watchlist, "title_turbo_frame") %>
-  <%= turbo_frame_tag frame_id do %>
-    <%= f.input :title, label: false %>
-    <%= f.association :movies %> <!-- esto me traiga params [movie]-->
-    <div class="review-actions">
-      <%= button_tag type: 'submit', class: 'default1_button' do %>
-        <i class="fa-solid fa-check"></i>
-      <% end %>
-      <%= link_to @watchlist, class: "default1_button" do %>
-        <i class="fa-solid fa-ban"></i>
-      <% end %>
+<div class= "d-flex justify-content-center">
+  <%= simple_form_for(@watchlist) do |f| %>
+    <% frame_id =  dom_id(@watchlist, "title_turbo_frame") %>
+    <%= turbo_frame_tag frame_id do %>
+    <div class= "favorites-scroll">
+      <%= f.input :title, label: false %>
+      <%= f.association :movies, input_html: { class: 'style' } %> <!-- esto me traiga params [movie]-->
     </div>
+      <div class="review-actions">
+        <%= button_tag type: 'submit', class: 'default1_button' do %>
+          <i class="fa-solid fa-check"></i>
+        <% end %>
+        <%= link_to @watchlist, class: "default1_button" do %>
+          <i class="fa-solid fa-ban"></i>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

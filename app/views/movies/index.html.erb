@@ -14,13 +14,13 @@
   <% movie.genre %>
   <% end %>
   <% @platforms = ["Star+", "Netflix", "Disney+", "HBO Max", "Amazon Prime"] %>
-  <div class="dropdown mt-3">
+  <div class="custom-select dropdown mt-3">
     <%= form_with(url: movies_path, method: :get, class: "mb-4") do |f| %>
       <ul class="list-group list-group-horizontal">
           <li class="btn btn-primary"><%= f.select :año, ([""] + (1960..2023).to_a), label: false %>&nbsp Año
           <li class="btn btn-primary"><%= f.select :genero, ([""] + @genres.uniq), label: false %>&nbsp Género
           <li class="btn btn-primary"><%= f.select :plataforma, ([""] + @platforms), label: false %>&nbsp Plataforma &nbsp
-          <%= f.button :submit, class:"default1_button" %>
+          <%= f.button "Buscar", class:"default1_button" %>
       </ul>
     <% end %>
   </div>
