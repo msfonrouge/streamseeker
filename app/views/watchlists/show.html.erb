@@ -14,18 +14,12 @@
       </div>
     <% end %>
   <% end %>
-  <% if @watchlist.title == "Mis favoritas" %>
-    <% movies = @watchlist.user.all_favorited%>
-  <% elsif @watchlist.title == "Watchlist" %>
-    <% movies = @watchlist.user.all_favorited(scope: :watchlist) %>
-  <% else %>
-    <% others = @watchlist.title.downcase.gsub( " ", "_") %>
-    <% movies = @watchlist.user.all_favorited(scope: others) %>
-  <% end %>
+    <% movies = @watchlist.user.all_favorited(scope: @watchlist.title) %>
+
   <div class="d-flex justify-content-center flex-wrap">
     <% movies.each do |movie| %>
       <div class="card-trip m-3">
-<%= link_to unfavorite_movie_path(movie), class: "default1_button delete", data: {turbo_method: :post, turbo_confirm: "¿Está seguro de que quiere borrar esta película?", turbo_action: "advance", turbo_frame: "_top"} do %>
+<%= link_to unfavorite_movie_path(@watchlist, movie_id: movie.id), class: "default1_button delete", data: {turbo_method: :post, turbo_confirm: "¿Está seguro de que quiere borrar esta película?", turbo_action: "advance", turbo_frame: "_top"} do %>
   <i class= "far fa-trash-alt text-black"></i>
 <% end %>
         <%= link_to movie, class: 'clear-link' do %>
