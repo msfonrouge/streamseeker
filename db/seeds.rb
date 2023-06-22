@@ -36,6 +36,27 @@ movie1.photo.attach(
 )
 movie1.save!
 
+mov =
+  Movie.create(
+    title: "Yo antes de ti",
+    description:
+      "La vida de Louisa Clark, una chica alegre y alocada, que va empalmando un trabajo con otro para ayudar a su familia a subsistir, cambia por completo cuando comienza a trabajar como cuidadora de un joven millonario, quien quedó paralítico tras un accidente. Poco a poco, se va estableciendo entre ellos una conexión cada vez más íntima.",
+    year: 2016,
+    length: 120,
+    genre: "Drama",
+    platform: "Amazon Prime"
+  )
+photo_mov =
+  URI.open(
+    "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQmDLIczdhxOzF-ppt05dEUomL_CY_XFz2nWTk675zU44OQM8Rx"
+  )
+mov.photo.attach(
+  io: photo_mov,
+  filename: "mov.png",
+  content_type: "image/png"
+)
+mov.save!
+
 principal_user = User.create(email: "spider@gmail.com", password: "123456")
 photo_principal_user =
   URI.open(
@@ -131,6 +152,14 @@ review4 =
     rate: 1,
     movie_id: movie1.id,
     user_id: charlie.id
+  )
+
+  reviek =
+  Review.create(
+    content: "Demasiado buena, termine llorando, pero muy linda historia",
+    rate: 5,
+    movie_id: mov.id,
+    user_id: keiber.id
   )
 
 watchlist1 = Watchlist.create(title: "Para ver", user_id: user1)
