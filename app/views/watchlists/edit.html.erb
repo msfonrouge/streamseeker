@@ -2,6 +2,7 @@
   <% frame_id =  dom_id(@watchlist, "title_turbo_frame") %>
   <%= turbo_frame_tag frame_id do %>
     <%= f.input :title, label: false %>
+    <%= f.association :movies %> <!-- esto me traiga params [movie]-->
     <div class="review-actions">
       <%= button_tag type: 'submit', class: 'default1_button' do %>
         <i class="fa-solid fa-check"></i>
