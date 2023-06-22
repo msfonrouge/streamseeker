@@ -1,5 +1,5 @@
 class WatchlistsController < ApplicationController
-  before_action :set_user, only: %i[index new edit unfavorite]
+  before_action :set_user, only: %i[index new edit update unfavorite]
 
   def index
     @watchlists = @user.watchlists
@@ -19,7 +19,6 @@ class WatchlistsController < ApplicationController
   def create
     @watchlist = Watchlist.new(watchlist_params)
     @watchlist.user = current_user
-    # @watchlist.marker = Marker.new()
     if @watchlist.save
       redirect_to watchlists_path,
                   notice: "The watchlist has been created successfully"
@@ -32,10 +31,11 @@ class WatchlistsController < ApplicationController
     @watchlist = Watchlist.find(params[:id])
   end
 
-  #PATCH restaurant update
   def update
     @watchlist = Watchlist.find(params[:id])
+    @movie = Movie.find(params[:watchlist][:movie_ids][1])
     @watchlist.update(watchlist_params)
+    @user.favorite(@movie, scope: @watchlist.title)
     if @watchlist.save
       redirect_to watchlist_path(@watchlist.id),
                   notice: "La Watchlist se ha actualizado correctamente"
@@ -51,11 +51,10 @@ class WatchlistsController < ApplicationController
   end
 
   def unfavorite
-    movie_id = params[:id]
-    @favorite = Favorite.where(user_id: @user.id, movie_id: @movie.id)
-    @favorite.destroy
-    #@user.unfavorite(@movie.id)
-    redirect_to movies_path, status: :see_other
+    #@watchlist = Watchlist.find(params[:id])
+    movie = Movie.find(params[:id])
+    @user.unfavorite(movie)
+    redirect_to watchlists_path, status: :see_other
   end
 
   private

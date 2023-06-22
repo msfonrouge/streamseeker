@@ -17,7 +17,7 @@
     <div class="">
       <div class=" d-flex  flex-wrap justify-content-center gap-3">
         <% @genres.each do |genre| %>
-          <%= link_to movies_path, class: 'text-white' do %>
+          <%= link_to movies_path(genero: genre), class: 'text-white' do %>
             <%= button_tag genre, class: "badge" %>
           <% end %>
         <% end %>
