@@ -14,13 +14,13 @@
   <% movie.genre %>
   <% end %>
   <% @platforms = ["Star+", "Netflix", "Disney+", "HBO Max", "Amazon Prime"] %>
-  <div class="dropdown mt-3">
+  <div class="custom-select dropdown mt-3">
     <%= form_with(url: movies_path, method: :get, class: "mb-4") do |f| %>
       <ul class="list-group list-group-horizontal">
           <li class="btn btn-primary"><%= f.select :año, ([""] + (1960..2023).to_a), label: false %>&nbsp Año
           <li class="btn btn-primary"><%= f.select :genero, ([""] + @genres.uniq), label: false %>&nbsp Género
           <li class="btn btn-primary"><%= f.select :plataforma, ([""] + @platforms), label: false %>&nbsp Plataforma &nbsp
-          <%= f.button :submit, class:"default1_button" %>
+          <%= f.button "Buscar", class:"default1_button" %>
       </ul>
     <% end %>
   </div>
@@ -28,9 +28,16 @@
 
 
 <div class="container d-flex justify-content-center flex-wrap">
+
   <% if params[:series] == "true" %>
     <% @movies.where(series: true).each do |movie| %>
       <div class="card-trip m-3">
+        <%= link_to toggle_favorite_movie_path(movie), data: {'turbo-method' => :post },class: "watchlist" do %>
+          <i data-favorites-target="heart" class="fa-solid fa-bookmark"></i>
+        <% end %>
+        <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites#toggleHeartButton"},class: "heart" do %>
+          <i  class="fa-solid fa-heart"></i>
+        <% end %>
         <%= link_to movie, class: 'clear-link' do %>
           <% if movie.photo.attached? %>
             <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
@@ -44,9 +51,16 @@
         <% end %>
       </div>
     <% end %>
+
   <% elsif params[:pelicula] == "true" %>
     <% @movies.where(series: false).order(title: :desc).each do |movie| %>
       <div class="card-trip m-3">
+        <%= link_to toggle_favorite_movie_path(movie), data: {'turbo-method' => :post },class: "watchlist" do %>
+          <i data-favorites-target="heart" class="fa-solid fa-bookmark"></i>
+        <% end %>
+        <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites#toggleHeartButton"},class: "heart" do %>
+          <i  class="fa-solid fa-heart"></i>
+        <% end %>
         <%= link_to movie, class: 'clear-link' do %>
           <% if movie.photo.attached? %>
             <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
@@ -62,26 +76,26 @@
     <% end %>
 
   <% else %>
-  <% @movies.each do |movie| %>
-  <div class="card-trip m-3">
-    <%= link_to toggle_favorite_movie_path(movie), data: {'turbo-method' => :post },class: "watchlist" do %>
-      <i data-favorites-target="heart" class="fa-solid fa-bookmark" ></i>
+    <% @movies.each do |movie| %>
+      <div class="card-trip m-3">
+        <%= link_to toggle_favorite_movie_path(movie), data: {'turbo-method' => :post },class: "watchlist" do %>
+          <i data-favorites-target="heart" class="fa-solid fa-bookmark"></i>
+        <% end %>
+        <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites#toggleHeartButton"},class: "heart" do %>
+          <i  class="fa-solid fa-heart"></i>
+        <% end %>
+        <%= link_to movie, class: 'clear-link' do %>
+          <% if movie.photo.attached? %>
+            <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
+          <% end %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= movie.title %></h2>
+                  <p><%= movie.year %></p>
+                </div>
+              </div>
+        <% end %>
+      </div>
     <% end %>
-    <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites#toggleHeartButton"},class: "heart" do %>
-    <i  class="fa-solid fa-heart"></i>
-    <% end %>
-    <%= link_to movie, class: 'clear-link' do %>
-      <% if movie.photo.attached? %>
-        <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
-      <% end %>
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= movie.title %></h2>
-              <p><%= movie.year %></p>
-            </div>
-          </div>
-    <% end %>
-  </div>
-  <% end %>
   <% end %>
 </div>
