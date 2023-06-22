@@ -36,6 +36,27 @@ movie1.photo.attach(
 )
 movie1.save!
 
+mov =
+  Movie.create(
+    title: "Yo antes de ti",
+    description:
+      "La vida de Louisa Clark, una chica alegre y alocada, que va empalmando un trabajo con otro para ayudar a su familia a subsistir, cambia por completo cuando comienza a trabajar como cuidadora de un joven millonario, quien quedó paralítico tras un accidente. Poco a poco, se va estableciendo entre ellos una conexión cada vez más íntima.",
+    year: 2016,
+    length: 120,
+    genre: "Drama",
+    platform: "Amazon Prime"
+  )
+photo_mov =
+  URI.open(
+    "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQmDLIczdhxOzF-ppt05dEUomL_CY_XFz2nWTk675zU44OQM8Rx"
+  )
+mov.photo.attach(
+  io: photo_mov,
+  filename: "mov.png",
+  content_type: "image/png"
+)
+mov.save!
+
 principal_user = User.create(email: "spider@gmail.com", password: "123456")
 photo_principal_user =
   URI.open(
@@ -59,6 +80,40 @@ user1.photo.attach(
   content_type: "image/png"
 )
 user1.save!
+
+keiber =
+  User.create(
+    email: "keiber@gmail.com",
+    password: "123456",
+    password_confirmation: "123456"
+  )
+
+photo_keiber = URI.open("https://avatars.githubusercontent.com/u/101483657?v=4")
+keiber.photo.attach(
+  io: photo_keiber,
+  filename: "keiber.png",
+  content_type: "image/png"
+)
+keiber.save!
+
+maximo = User.create(email: "maximo@gmail.com", password: "123456")
+photo_maximo = URI.open("https://avatars.githubusercontent.com/u/37337680?v=4")
+maximo.photo.attach(
+  io: photo_maximo,
+  filename: "maximo.png",
+  content_type: "image/png"
+)
+maximo.save!
+
+charlie = User.create(email: "charlie@gmail.com", password: "123456")
+photo_charlie =
+  URI.open("https://avatars.githubusercontent.com/u/130188802?v=4")
+charlie.photo.attach(
+  io: photo_charlie,
+  filename: "charlie.png",
+  content_type: "image/png"
+)
+charlie.save!
 
 user2 = User.create(email: "santi@gmail.com", password: "123456")
 photo_user2 = URI.open("https://avatars.githubusercontent.com/u/129775423?v=4")
@@ -97,6 +152,14 @@ review4 =
     rate: 1,
     movie_id: movie1.id,
     user_id: charlie.id
+  )
+
+  reviek =
+  Review.create(
+    content: "Demasiado buena, termine llorando, pero muy linda historia",
+    rate: 5,
+    movie_id: mov.id,
+    user_id: keiber.id
   )
 
 watchlist1 = Watchlist.create(title: "Para ver", user_id: user1)
@@ -852,21 +915,6 @@ markers_anakin_mis_favoritas_star_wars_v =
 
 puts "terminó seed"
 
-keiber =
-  User.create(
-    email: "keiber@gmail.com",
-    password: "123456",
-    password_confirmation: "123456"
-  )
-
-photo_keiber = URI.open("https://avatars.githubusercontent.com/u/101483657?v=4")
-keiber.photo.attach(
-  io: photo_keiber,
-  filename: "keiber.png",
-  content_type: "image/png"
-)
-keiber.save!
-
 alex =
   User.create(
     email: "alex@gmail.com",
@@ -933,7 +981,7 @@ review50 =
   Review.create(
     content: "No me gusto mucho",
     rate: 3,
-    movie_id: movie1.id,
+    movie_id: happy.id,
     user_id: charlie.id
   )
 
@@ -941,21 +989,21 @@ review51 =
   Review.create(
     content: "Recomendada al 100%",
     rate: 5,
-    movie_id: movie1.id,
+    movie_id: happy.id,
     user_id: user2.id
   )
 review52 =
   Review.create(
     content: "Muy divertida y chistosa",
     rate: 4,
-    movie_id: movie1.id,
+    movie_id: happy.id,
     user_id: maximo.id
   )
 review53 =
   Review.create(
     content: "Eres mi mundo entero mi negra jajajaja, muy buena",
     rate: 5,
-    movie_id: movie1.id,
+    movie_id: happy.id,
     user_id: keiber.id
   )
 
@@ -1372,25 +1420,6 @@ movie20.photo.attach(
   content_type: "image/png"
 )
 movie20.save!
-
-charlie = User.create(email: "charlie@gmail.com", password: "123456")
-photo_charlie =
-  URI.open("https://avatars.githubusercontent.com/u/130188802?v=4")
-charlie.photo.attach(
-  io: photo_charlie,
-  filename: "charlie.png",
-  content_type: "image/png"
-)
-charlie.save!
-
-maximo = User.create(email: "maximo@gmail.com", password: "123456")
-photo_maximo = URI.open("https://avatars.githubusercontent.com/u/37337680?v=4")
-maximo.photo.attach(
-  io: photo_maximo,
-  filename: "maximo.png",
-  content_type: "image/png"
-)
-maximo.save!
 
 review_Sin_City =
   Review.create(
