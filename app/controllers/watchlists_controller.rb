@@ -7,7 +7,6 @@ class WatchlistsController < ApplicationController
 
   def show
     @watchlist = Watchlist.find(params[:id])
-    @marker = Marker.new
     @user = current_user
     @markers = @watchlist.markers
   end
@@ -51,10 +50,10 @@ class WatchlistsController < ApplicationController
   end
 
   def unfavorite
-    #@watchlist = Watchlist.find(params[:id])
-    movie = Movie.find(params[:id])
-    @user.unfavorite(movie)
-    redirect_to watchlists_path, status: :see_other
+    @watchlist = Watchlist.find(params[:id])
+    @movie = Movie.find(params[:movie_id])
+    @user.unfavorite(@movie, scope: @watchlist.title)
+    redirect_to watchlist_path(@watchlist.id), status: :see_other
   end
 
   private
