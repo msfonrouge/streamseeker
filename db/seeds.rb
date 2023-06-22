@@ -2,7 +2,7 @@ require "open-uri"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
-# Examples:
+# gmails:
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
@@ -23,7 +23,7 @@ movie1 =
     year: 1972,
     length: 175,
     genre: "Drama",
-    platform: "Netflix Star+"
+    platform: "Netflix, Star+"
   )
 photo_movie1 =
   URI.open(
@@ -36,7 +36,7 @@ movie1.photo.attach(
 )
 movie1.save!
 
-principal_user = User.create(email: "user@example.com", password: "123456")
+principal_user = User.create(email: "spider@gmail.com", password: "123456")
 photo_principal_user =
   URI.open(
     "https://i.pinimg.com/originals/2c/e9/c3/2ce9c35cc8d84b3107f764ea3ad9e135.jpg"
@@ -60,7 +60,7 @@ user1.photo.attach(
 )
 user1.save!
 
-user2 = User.create(email: "user2@example.com", password: "123456")
+user2 = User.create(email: "santi@gmail.com", password: "123456")
 photo_user2 = URI.open("https://avatars.githubusercontent.com/u/129775423?v=4")
 user2.photo.attach(
   io: photo_user2,
@@ -71,18 +71,32 @@ user2.save!
 
 review1 =
   Review.create(
-    content: "La Historia o el Argumento:** nos ambienta en el año 1945",
+    content: "no fue tan buena",
     rate: 2,
     movie_id: movie1.id,
-    user_id: user1.id
+    user_id: keiber.id
   )
 
 review2 =
   Review.create(
-    content: "Esta es una reseña.",
-    rate: 4,
+    content: "Recomendada al 100%",
+    rate: 5,
     movie_id: movie1.id,
     user_id: user2.id
+  )
+review3 =
+  Review.create(
+    content: "Muy buena película, demasiado entretenida",
+    rate: 4,
+    movie_id: movie1.id,
+    user_id: maximo.id
+  )
+review4 =
+  Review.create(
+    content: "Me parecia aburrida y sin sentido",
+    rate: 1,
+    movie_id: movie1.id,
+    user_id: charlie.id
   )
 
 watchlist1 = Watchlist.create(title: "Para ver", user_id: user1)
@@ -110,9 +124,9 @@ movie2.photo.attach(
 )
 movie2.save!
 
-user3 = User.create(email: "user3@example.com", password: "123456")
+user3 = User.create(email: "user3@gmail.com", password: "123456")
 
-user4 = User.create(email: "user4@example.com", password: "123456")
+user4 = User.create(email: "user4@gmail.com", password: "123456")
 
 review3 =
   Review.create(
@@ -124,7 +138,7 @@ review3 =
 
 review4 =
   Review.create(
-    content: "Esta es una reseña.",
+    content: "Definitivamente sin palabras",
     rate: 3,
     movie_id: movie2.id,
     user_id: user4.id
@@ -155,9 +169,9 @@ movie3.photo.attach(
 )
 movie3.save!
 
-user5 = User.create(email: "user5@example.com", password: "123456")
+user5 = User.create(email: "user5@gmail.com", password: "123456")
 
-user6 = User.create(email: "user6@example.com", password: "123456")
+user6 = User.create(email: "user6@gmail.com", password: "123456")
 
 review5 =
   Review.create(
@@ -169,7 +183,7 @@ review5 =
 
 review6 =
   Review.create(
-    content: "Esta es una reseña.",
+    content: "Definitivamente sin palabras",
     rate: 3,
     movie_id: movie3.id,
     user_id: user6.id
@@ -200,9 +214,9 @@ movie4.photo.attach(
 )
 movie4.save!
 
-user7 = User.create(email: "user7@example.com", password: "123456")
+user7 = User.create(email: "user7@gmail.com", password: "123456")
 
-user8 = User.create(email: "user8@example.com", password: "123456")
+user8 = User.create(email: "user8@gmail.com", password: "123456")
 
 review7 =
   Review.create(
@@ -215,7 +229,7 @@ review7 =
 
 review8 =
   Review.create(
-    content: "Esta es una reseña.",
+    content: "Definitivamente sin palabras",
     rate: 2,
     movie_id: movie4.id,
     user_id: user8.id
@@ -246,13 +260,13 @@ movie5.photo.attach(
 )
 movie5.save!
 
-user9 = User.create(email: "user9@example.com", password: "123456")
+user9 = User.create(email: "user9@gmail.com", password: "123456")
 
-user10 = User.create(email: "user10@example.com", password: "123456")
+user10 = User.create(email: "user10@gmail.com", password: "123456")
 
 review9 =
   Review.create(
-    content: "Esta es una reseña.",
+    content: "Definitivamente sin palabras",
     rate: 2,
     movie_id: movie5.id,
     user_id: user9.id
@@ -289,9 +303,9 @@ movie6.photo.attach(
 )
 movie6.save!
 
-user11 = User.create(email: "user11@example.com", password: "123456")
+user11 = User.create(email: "user11@gmail.com", password: "123456")
 
-user12 = User.create(email: "user12@example.com", password: "123456")
+user12 = User.create(email: "user12@gmail.com", password: "123456")
 
 review11 =
   Review.create(
@@ -303,7 +317,7 @@ review11 =
 
 review12 =
   Review.create(
-    content: "Esta es una reseña.",
+    content: "Definitivamente sin palabras",
     rate: 3,
     movie_id: movie6.id,
     user_id: user12.id
@@ -332,13 +346,13 @@ movie7.photo.attach(
 )
 movie7.save!
 
-user13 = User.create(email: "user13@example.com", password: "123456")
+user13 = User.create(email: "user13@gmail.com", password: "123456")
 
-user14 = User.create(email: "user14@example.com", password: "123456")
+user14 = User.create(email: "user14@gmail.com", password: "123456")
 
 review13 =
   Review.create(
-    content: "Esta es una reseña.",
+    content: "Definitivamente sin palabras",
     rate: 4,
     movie_id: movie7.id,
     user_id: user13.id
@@ -377,9 +391,9 @@ movie8.photo.attach(
 )
 movie8.save!
 
-user15 = User.create(email: "user15@example.com", password: "123456")
+user15 = User.create(email: "user15@gmail.com", password: "123456")
 
-user16 = User.create(email: "user16@example.com", password: "123456")
+user16 = User.create(email: "user16@gmail.com", password: "123456")
 
 review15 =
   Review.create(
@@ -391,7 +405,7 @@ review15 =
 
 review16 =
   Review.create(
-    content: "Esta es una reseña.",
+    content: "Definitivamente sin palabras",
     rate: 1,
     movie_id: movie8.id,
     user_id: user16.id
@@ -422,7 +436,7 @@ movie9.photo.attach(
 )
 movie9.save!
 
-user17 = User.create(email: "user17@example.com", password: "123456")
+user17 = User.create(email: "user17@gmail.com", password: "123456")
 photo_user17 =
   URI.open(
     "https://i.pinimg.com/236x/66/fe/5d/66fe5d802f424054e69bea16f3a0181e--batman-returns-batman-and-catwoman.jpg"
@@ -434,7 +448,7 @@ user17.photo.attach(
 )
 user17.save!
 
-user18 = User.create(email: "user18@example.com", password: "123456")
+user18 = User.create(email: "user18@gmail.com", password: "123456")
 
 review17 =
   Review.create(
@@ -446,7 +460,7 @@ review17 =
 
 review18 =
   Review.create(
-    content: "Esta es una reseña.",
+    content: "Definitivamente sin palabras",
     rate: 1,
     movie_id: movie9.id,
     user_id: user18.id
@@ -477,9 +491,9 @@ movie10.photo.attach(
 )
 movie10.save!
 
-user19 = User.create(email: "user19@example.com", password: "123456")
+user19 = User.create(email: "user19@gmail.com", password: "123456")
 
-user20 = User.create(email: "user20@example.com", password: "123456")
+user20 = User.create(email: "user20@gmail.com", password: "123456")
 
 review19 =
   Review.create(
@@ -491,7 +505,7 @@ review19 =
 
 review20 =
   Review.create(
-    content: "Esta es una reseña.",
+    content: "Definitivamente sin palabras",
     rate: 3,
     movie_id: movie10.id,
     user_id: user20.id
@@ -840,7 +854,7 @@ puts "terminó seed"
 
 keiber =
   User.create(
-    email: "keiber@example.com",
+    email: "keiber@gmail.com",
     password: "123456",
     password_confirmation: "123456"
   )
@@ -855,7 +869,7 @@ keiber.save!
 
 alex =
   User.create(
-    email: "alex@example.com",
+    email: "alex@gmail.com",
     password: "123456",
     password_confirmation: "123456"
   )
@@ -914,6 +928,36 @@ happy.photo.attach(
   content_type: "image/png"
 )
 happy.save!
+
+review50 =
+  Review.create(
+    content: "No me gusto mucho",
+    rate: 3,
+    movie_id: movie1.id,
+    user_id: charlie.id
+  )
+
+review51 =
+  Review.create(
+    content: "Recomendada al 100%",
+    rate: 5,
+    movie_id: movie1.id,
+    user_id: user2.id
+  )
+review52 =
+  Review.create(
+    content: "Muy divertida y chistosa",
+    rate: 4,
+    movie_id: movie1.id,
+    user_id: maximo.id
+  )
+review53 =
+  Review.create(
+    content: "Eres mi mundo entero mi negra jajajaja, muy buena",
+    rate: 5,
+    movie_id: movie1.id,
+    user_id: keiber.id
+  )
 
 harry =
   Movie.create(
@@ -1003,7 +1047,7 @@ deadpool = Movie.create(
   description: "Deadpool tiene que proteger a un mutante adolescente de Cable, un soldado del futuro genéticamente modificado, pero Deadpool no está solo: otros superhéroes igual de chiflados que él unen sus fuerzas contra el perverso Cable.",
   year: 2018,
   length: 119,
-  genre: "Acción/comedia",
+  genre: "Acción/Comedia",
   platform: "HBO Max",
 )
 photo_deadpool = URI.open("https://m.media-amazon.com/images/I/91KnqW+HkEL.jpg")
@@ -1655,6 +1699,37 @@ serie18 =
 photo_serie18 = URI.open("https://static.wikia.nocookie.net/strangerthings/images/0/09/Stranger_Things_Season_1.png/revision/latest?cb=20170110205004&path-prefix=es")
 serie18.photo.attach(io: photo_serie18, filename: "serie18.png", content_type: "image/png")
 serie18.save!
+
+review45 =
+  Review.create(
+    content: "no fue tan buena",
+    rate: 2,
+    movie_id: serie18.id,
+    user_id: keiber.id
+  )
+
+review46 =
+  Review.create(
+    content: "Recomendada al 100%",
+    rate: 5,
+    movie_id: serie18.id,
+    user_id: user2.id
+  )
+review47 =
+  Review.create(
+    content: "Muy buena película, demasiado entretenida",
+    rate: 4,
+    movie_id: serie18.id,
+    user_id: maximo.id
+  )
+review48 =
+  Review.create(
+    content: "Me parecia aburrida y sin sentido",
+    rate: 1,
+    movie_id: serie18.id,
+    user_id: charlie.id
+  )
+
 serie19 =
   Movie.create(
     title: "Amor y Muerte",
