@@ -39,7 +39,7 @@
     position: relative;
 }
 
-.watchlist, .heart {
+.watchlist, .heart, .delete {
     position: absolute;
     font-size: 15px;
     color: #FFF;
@@ -59,6 +59,6 @@
     //color: #FF7F50;
 }
 
-.card-trip .heart {
+.card-trip .heart, .card-trip .delete {
     right: 5px;
 }
