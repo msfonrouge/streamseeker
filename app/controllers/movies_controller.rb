@@ -46,7 +46,7 @@ class MoviesController < ApplicationController
   end
 
   def toggle_favorite
-    @user.favorited?(@movie)  ? @user.unfavorite(@movie) : @user.favorite(@movie)
+    @user.favorited?(@movie, scope: "Mis favoritas")  ? @user.unfavorite(@movie, scope: "Mis favoritas") : @user.favorite(@movie, scope: "Mis favoritas")
   end
 
   private

@@ -11,7 +11,7 @@ export default class extends Controller {
 
   toggleHeartButton() {
     console.log("toggleHeartButton called");
-    this.heartTarget.classList.toggle("red");
+    //this.heartTarget.classList.toggle("red");
      this.heartTarget.style.color = "red";
   }
 }
