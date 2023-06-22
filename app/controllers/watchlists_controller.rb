@@ -31,7 +31,6 @@ class WatchlistsController < ApplicationController
     @watchlist = Watchlist.find(params[:id])
   end
 
-  #PATCH restaurant update
   def update
     @watchlist = Watchlist.find(params[:id])
     @movie = Movie.find(params[:watchlist][:movie_ids][1])
