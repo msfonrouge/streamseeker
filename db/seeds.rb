@@ -60,6 +60,40 @@ user1.photo.attach(
 )
 user1.save!
 
+keiber =
+  User.create(
+    email: "keiber@gmail.com",
+    password: "123456",
+    password_confirmation: "123456"
+  )
+
+photo_keiber = URI.open("https://avatars.githubusercontent.com/u/101483657?v=4")
+keiber.photo.attach(
+  io: photo_keiber,
+  filename: "keiber.png",
+  content_type: "image/png"
+)
+keiber.save!
+
+maximo = User.create(email: "maximo@gmail.com", password: "123456")
+photo_maximo = URI.open("https://avatars.githubusercontent.com/u/37337680?v=4")
+maximo.photo.attach(
+  io: photo_maximo,
+  filename: "maximo.png",
+  content_type: "image/png"
+)
+maximo.save!
+
+charlie = User.create(email: "charlie@gmail.com", password: "123456")
+photo_charlie =
+  URI.open("https://avatars.githubusercontent.com/u/130188802?v=4")
+charlie.photo.attach(
+  io: photo_charlie,
+  filename: "charlie.png",
+  content_type: "image/png"
+)
+charlie.save!
+
 user2 = User.create(email: "santi@gmail.com", password: "123456")
 photo_user2 = URI.open("https://avatars.githubusercontent.com/u/129775423?v=4")
 user2.photo.attach(
@@ -852,21 +886,6 @@ markers_anakin_mis_favoritas_star_wars_v =
 
 puts "terminó seed"
 
-keiber =
-  User.create(
-    email: "keiber@gmail.com",
-    password: "123456",
-    password_confirmation: "123456"
-  )
-
-photo_keiber = URI.open("https://avatars.githubusercontent.com/u/101483657?v=4")
-keiber.photo.attach(
-  io: photo_keiber,
-  filename: "keiber.png",
-  content_type: "image/png"
-)
-keiber.save!
-
 alex =
   User.create(
     email: "alex@gmail.com",
@@ -933,7 +952,7 @@ review50 =
   Review.create(
     content: "No me gusto mucho",
     rate: 3,
-    movie_id: movie1.id,
+    movie_id: happy.id,
     user_id: charlie.id
   )
 
@@ -941,21 +960,21 @@ review51 =
   Review.create(
     content: "Recomendada al 100%",
     rate: 5,
-    movie_id: movie1.id,
+    movie_id: happy.id,
     user_id: user2.id
   )
 review52 =
   Review.create(
     content: "Muy divertida y chistosa",
     rate: 4,
-    movie_id: movie1.id,
+    movie_id: happy.id,
     user_id: maximo.id
   )
 review53 =
   Review.create(
     content: "Eres mi mundo entero mi negra jajajaja, muy buena",
     rate: 5,
-    movie_id: movie1.id,
+    movie_id: happy.id,
     user_id: keiber.id
   )
 
@@ -1372,25 +1391,6 @@ movie20.photo.attach(
   content_type: "image/png"
 )
 movie20.save!
-
-charlie = User.create(email: "charlie@gmail.com", password: "123456")
-photo_charlie =
-  URI.open("https://avatars.githubusercontent.com/u/130188802?v=4")
-charlie.photo.attach(
-  io: photo_charlie,
-  filename: "charlie.png",
-  content_type: "image/png"
-)
-charlie.save!
-
-maximo = User.create(email: "maximo@gmail.com", password: "123456")
-photo_maximo = URI.open("https://avatars.githubusercontent.com/u/37337680?v=4")
-maximo.photo.attach(
-  io: photo_maximo,
-  filename: "maximo.png",
-  content_type: "image/png"
-)
-maximo.save!
 
 review_Sin_City =
   Review.create(
