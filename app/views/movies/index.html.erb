@@ -20,14 +20,14 @@
           <li class="btn btn-primary"><%= f.select :año, ([""] + (1960..2023).to_a), label: false %>&nbsp Año
           <li class="btn btn-primary"><%= f.select :genero, ([""] + @genres.uniq), label: false %>&nbsp Género
           <li class="btn btn-primary"><%= f.select :plataforma, ([""] + @platforms), label: false %>&nbsp Plataforma &nbsp
-          <%= f.button "Buscar", class:"default1_button" %>
+          <%= f.button "Filtrar", class:"default1_button" %>
       </ul>
     <% end %>
   </div>
 </div>
 
 
-<div class="container d-flex justify-content-center flex-wrap">
+<div class="container d-flex justify-content-center flex-wrap mb-5">
 
   <% if params[:series] == "true" %>
     <% @movies.where(series: true).each do |movie| %>
@@ -78,11 +78,6 @@
   <% else %>
     <% @movies.each do |movie| %>
       <div class="card-trip m-3">
-
-
-
-
-
   <%= link_to toggle_bookmark_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "bookmark", action: "click->favorites#toggleBookmarkButton"}, class: "bookmark #{'bookmark-orange' if @user.favorited?(movie, scope: "Bookmarks")}" do %>
     <i  class="fa-solid fa-bookmark"></i>
   <% end %>
