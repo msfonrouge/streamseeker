@@ -24,7 +24,7 @@
 	cursor: pointer;
 	user-select: none;
 	transition: all .3s;
-	font-size: large;
+	font-size:larger;
   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 	&:hover {
@@ -51,6 +51,23 @@
 .card-color {
  background-color: #161616;
 }
+
+.bring-closer {
+  width: 916px;
+  align-content: center;
+  margin-left: 200px;
+}
+
+.bring-closer-search {
+  width: 1100px;
+  align-content: center;
+  margin-left: 100px;
+}
+
+input::placeholder {
+  color: #FBC500 !important;
+}
+
 
 
 // .badge {

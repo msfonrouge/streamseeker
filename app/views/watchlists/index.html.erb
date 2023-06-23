@@ -1,15 +1,16 @@
 <div class= "container">
   <div class="d-flex justify-content-between pt-5">
-  <h2>Mis listas</h2>
-  <p><%= link_to "Crear Lista", new_watchlist_path, class: "default1_button" %></p>
+    <h2>Mis listas</h2>
+  <%= link_to  "Crear Lista", new_watchlist_path, class: "default1_button"%>
   </div>
+  <br>
   <div class="cards">
     <% @watchlists.each do |watchlist| %>
       <%= link_to watchlist, class: 'clear-link' do %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path('fondo-listas.jpg') %>');
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path('collage.jpg') %>');
 ">
-          <%= watchlist.title %>
-        </div>
+        <%= watchlist.title %>
+  </div>
       <% end %>
     <% end %>
   </div>

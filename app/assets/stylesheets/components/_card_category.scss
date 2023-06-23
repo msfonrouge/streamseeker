@@ -1,14 +1,26 @@
 .card-category {
     background-size: cover;
     background-position: center;
-    height: 180px;
+    height: 280px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    touch-action: manipulation;
+    border: 1px solid #ffc803;
+
+
+
+  &:hover {
+    transition: all 0.4s ease-out;
+    border: 1px solid #ffc803;
+    transform: scale(1.1);
+    transform-origin: 50% 50%;
+    color: #ffc803;
+  }
 }

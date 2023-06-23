@@ -2,8 +2,8 @@
   <div class="container full-height">
     <div class="row d-flex justify-content-center my-3" data-controller="search">
       <%= form_with(url: movies_path, method: :get, class: "mb-4", data: {search_target: "form"}) do |f| %>
-        <div class="search-form-control form-group" >
-          <%= f.text_field :query, class: 'form-control string required my-3', id: 'search_query', data: { search_target: "input", action: "keyup->search#submit" }, label: false %>
+        <div class="bring-closer-search search-form-control form-group" >
+          <%= f.text_field :query, class: 'form-control string required my-3', id: 'search_query',  data: {search_target: "input", action: "keyup->search#submit" }, label: false, placeholder:'Buscar algo que ver...' %>
           <%= f.button :submit, class: 'btn btn-warning rounded-right top-0 bottom-0 end-0' do %>
             <i class="fas fa-search"></i>
           <% end %>
@@ -15,7 +15,7 @@
     </div>
 
     <div class="">
-      <div class=" d-flex  flex-wrap justify-content-center gap-3">
+      <div class="bring-closer d-flex  flex-wrap justify-content-center gap-3">
         <% @genres.each do |genre| %>
           <%= link_to movies_path(genero: genre), class: 'text-white' do %>
             <%= button_tag genre, class: "badge" %>
