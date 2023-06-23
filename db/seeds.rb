@@ -1785,3 +1785,172 @@ serie20 =
 photo_serie20 = URI.open("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRg6MXUIHmjSYa_M8GpHDjy1cobFlLxyN4Y9RXfWBZWQWph1IbC")
 serie20.photo.attach(io: photo_serie20, filename: "serie20.png", content_type: "image/png")
 serie20.save!
+serie21 =
+  Movie.create(
+    title: "Miraculous: Las aventuras de Ladybug",
+    description: "En París, Marinette y Adrien parecen estudiantes normales. Sin embargo, ellos son los elegidos para salvar a los habitantes del mal.",
+    year: 2015,
+    length: 5,
+    genre: "Infantil",
+    platform: "Netflix",
+    series: true
+)
+photo_serie21 = URI.open("https://images.justwatch.com/poster/249680095/s332/temporada-4.%7Bformat%7D")
+serie21.photo.attach(io: photo_serie21, filename: "serie21.png", content_type: "image/png")
+serie21.save!
+serie22=
+  Movie.create(
+    title: "El mundo de Craig",
+    description: "Craig y sus amigos, Kelsey y J.P., se adentran en un mundo salvaje dominado por tribus de niños que establecen sus propias leyes.",
+    year: 2018,
+    length: 5,
+    genre: "Infantil",
+    platform: "HBO Max",
+    series: true
+)
+photo_serie22 = URI.open("https://static.wikia.nocookie.net/doblaje/images/d/da/CraigOfTheCreek.jpg/revision/latest?cb=20230117234512&path-prefix=es")
+serie22.photo.attach(io: photo_serie22, filename: "serie22.png", content_type: "image/png")
+serie22.save!
+serie23 =
+  Movie.create(
+    title: "Un lugar para soñar",
+    description: "Una enfermera se muda de Los Ángeles a una remota ciudad del norte de California y se sorprende de lo que encuentra.",
+    year: 2019,
+    length: 4,
+    genre: "Romance",
+    platform: "Netflix",
+    series: true
+)
+photo_serie23 = URI.open("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS_mGKteTIrovsXDkRWT4pAlk3SVcI9uZKf8WnQJlAajjU7s_G0")
+serie23.photo.attach(io: photo_serie23, filename: "serie23.png", content_type: "image/png")
+serie23.save!
+
+reviewse23 =
+  Review.create(
+    content: "Es una cautivadora historia que te transporta a un mundo donde los corazones se entrelazan y las emociones florecen con la fuerza de mil girasoles.",
+    rate: 4,
+    movie_id: serie23.id,
+    user_id: user1.id
+  )
+
+serie24 =
+  Movie.create(
+    title: "Cuando un Ángel Se Enamora",
+    description: "El ángel Dan debe ayudar a Yeonseo a encontrar el amor para poder regresar al reino de los cielos, pero se enamora de la joven.",
+    year: 2019,
+    length: 3,
+    genre: "Romance",
+    platform: "HBO Max",
+    series: true
+)
+photo_serie24 = URI.open("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRZQUvYqYuHl15Cw0lWTPY323Sz2eyFjviQLfr03LtBxzMhfE7T")
+serie24.photo.attach(io: photo_serie24, filename: "serie24.png", content_type: "image/png")
+serie24.save!
+
+reviewro =
+  Review.create(
+    content: "Fue muy linda, completamente recomendada <3",
+    rate: 5,
+    movie_id: serie24.id,
+    user_id: user17.id
+)
+
+  peli1 =
+  Movie.create(
+    title: "Un Jefe en pañales 2",
+    description: "Theodore Templeton y su hermano, ahora adultos, toman una pócima mágica que los transforma en bebés durante 48 horas. Juntos, deben evitar que un villano convierta a otros niños pequeños en monstruitos insoportables.",
+    year: 2021,
+    length: 4,
+    genre: "Infantil",
+    platform: "Star+",
+    series: false
+)
+photo_peli1 = URI.open("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSXARwp_XQux-py8icUrZkff8zUW7lEnpQ4qKIlBwilvsnEQP00")
+peli1.photo.attach(io: photo_peli1, filename: "peli1.png", content_type: "image/png")
+peli1.save!
+
+peli2 =
+  Movie.create(
+    title: "Río",
+    description: "Capturado por contrabandistas cuando era apenas una cría, un guacamayo llamado Blu nunca aprendió a volar y vive una vida feliz domesticado en Minnesota con su amiga humana, Linda. Blu se piensa que es el último de su especie, pero cuando escuchan que Jewel, una solitaria hembra, vive en Río de Janeiro, Blu y Linda emprenderán un viaje a su encuentro.",
+    year: 2011,
+    length: 3,
+    genre: "Infantil",
+    platform: "Disney+",
+    series: false
+)
+photo_peli2 = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5NqAA_ltTe2k_XyjiQi2kpg94V1OHXfVCrBMB66MtT36SJ8tx")
+peli2.photo.attach(io: photo_peli2, filename: "peli2.png", content_type: "image/png")
+peli2.save!
+
+peli3 =
+  Movie.create(
+    title: "Nace una estrella",
+    description: "Jackson, una estrella de la música country con problemas de alcoholismo, descubre el talento de Ally, una joven cantante de la cual se enamora. Mientras la carrera de ella despega, Jackson percibe que sus días de gloria están llegando a su fin.",
+    year: 2018,
+    length: 4,
+    genre: "Romance",
+    platform: "HBO Max",
+    series: false
+)
+photo_peli3 = URI.open("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRh0aFV7EhhgIZApi3_HQShNXb8oRTKlAcVnKjOFS1oH-HHcOn5")
+peli3.photo.attach(io: photo_peli3, filename: "peli3.png", content_type: "image/png")
+peli3.save!
+
+peli4 =
+  Movie.create(
+    title: "Bajo la misma estrella",
+    description: "Dos adolescentes pacientes de cáncer inician un viaje para reafirmar sus vidas y visitar a un escritor solitario en Ámsterdam.",
+    year: 2014,
+    length: 3,
+    genre: "Romance",
+    platform: "Disney+",
+    series: false
+)
+photo_peli4 = URI.open("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQEK6XxaLPQ894ovQrCUnNa0Tj7zotvHEkDe9zR3amCH5y4fEZf")
+peli4.photo.attach(io: photo_peli4, filename: "peli4.png", content_type: "image/png")
+peli4.save!
+
+reviewpe5 =
+  Review.create(
+    content: "Chicos, no busquen mas, esta peli es muy hermosa, veanla !!",
+    rate: 5,
+    movie_id: peli4.id,
+    user_id: keiber.id
+  )
+  reviewro =
+  Review.create(
+    content: "Preciosa",
+    rate: 4,
+    movie_id: peli4.id,
+    user_id: maximo.id
+  )
+
+peli5 =
+  Movie.create(
+    title: "La leyenda de la llorona",
+    description: "Niños intentan detener al fantasma de una mujer que secuestra niños que vagan por el bosque durante la noche, debido a su sentimiento de culpa por haber ahogado a sus propios hijos.",
+    year: 2011,
+    length: 3,
+    genre: "Infantil",
+    platform: "Netflix",
+    series: false
+)
+photo_peli5 = URI.open("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS0k5KklWxoQ5fWNLZP9ZjoHn038nREEJ7D4K-0t8Z8mMLLyejv")
+peli5.photo.attach(io: photo_peli5, filename: "peli5.png", content_type: "image/png")
+peli5.save!
+
+reviewpe5 =
+  Review.create(
+    content: "Que pelicula mas buena",
+    rate: 5,
+    movie_id: peli5.id,
+    user_id: keiber.id
+  )
+  reviewro =
+  Review.create(
+    content: "Muy divertida",
+    rate: 4,
+    movie_id: peli5.id,
+    user_id: maximo.id
+  )
