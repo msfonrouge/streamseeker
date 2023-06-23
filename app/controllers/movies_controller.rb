@@ -1,8 +1,8 @@
 class MoviesController < ApplicationController
-  before_action :authenticate_user!, only: :toggle_favorite
+  before_action :authenticate_user!, only: [:toggle_favorite, :toggle_bookmark]
 
-  before_action :set_movies, only: [:show, :toggle_favorite]
-  before_action :set_user, only: [:show, :index, :toggle_favorite]
+  before_action :set_movies, only: [:show, :toggle_favorite, :toggle_bookmark]
+  before_action :set_user, only: [:show, :index, :toggle_favorite, :toggle_bookmark]
   def index
 
     if params[:query].present?
@@ -47,6 +47,10 @@ class MoviesController < ApplicationController
 
   def toggle_favorite
     @user.favorited?(@movie, scope: "Mis favoritas")  ? @user.unfavorite(@movie, scope: "Mis favoritas") : @user.favorite(@movie, scope: "Mis favoritas")
+  end
+
+  def toggle_bookmark
+    @user.favorited?(@movie, scope: "Bookmarks")  ? @user.unfavorite(@movie, scope: "Bookmarks") : @user.favorite(@movie, scope: "Bookmarks")
   end
 
   private

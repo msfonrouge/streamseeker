@@ -7,9 +7,6 @@
     position: relative;
 }
 
-
-
-
 .card-trip>img {
     height: 300px;
     width: 100%;
@@ -39,7 +36,7 @@
     position: relative;
 }
 
-.watchlist, .heart, .delete {
+.bookmark, .heart, .delete {
     position: absolute;
     font-size: 15px;
     color: #FFF;
@@ -54,11 +51,18 @@
     text-decoration: none;
 }
 
-.card-trip .watchlist {
+.card-trip .bookmark {
     left: 5px;
-    //color: #FF7F50;
 }
 
 .card-trip .heart, .card-trip .delete {
     right: 5px;
+}
+
+.bookmark-orange {
+    color: #FF7F50;
+}
+
+.heart-red {
+    color: #FF0000;
 }

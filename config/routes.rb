@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :movies, only: %i[index show] do
     resources :reviews, only: [:create]
     member { post "toggle_favorite", to: "movies#toggle_favorite" }
+    member { post "toggle_bookmark", to: "movies#toggle_bookmark" }
     member { post "unfavorite", to: "watchlists#unfavorite" }
   end
   resources :watchlists

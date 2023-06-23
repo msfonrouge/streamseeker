@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 
 export default class extends Controller {
-  static targets = ["heart"];
+  static targets = ["heart", "bookmark"];
 
   connect() {
     //console.log(this.element);
@@ -10,8 +10,13 @@ export default class extends Controller {
   }
 
   toggleHeartButton() {
-    console.log("toggleHeartButton called");
-    //this.heartTarget.classList.toggle("red");
-     this.heartTarget.style.color = "red";
+    this.heartTarget.classList.toggle("heart-red");
+     //this.heartTarget.style.color = "red";
   }
+
+   toggleBookmarkButton() {
+     this.bookmarkTarget.classList.toggle("bookmark-orange");
+     //this.bookmarkTarget.style.color = "orange";
+   }
 }
+
