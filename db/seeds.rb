@@ -1920,9 +1920,9 @@ reviewpe5 =
   )
   reviewro =
   Review.create(
-    content: "",
+    content: "Preciosa",
     rate: 4,
-    movie_id: peli5.id,
+    movie_id: peli4.id,
     user_id: maximo.id
   )
 
