@@ -32,10 +32,10 @@
   <% if params[:series] == "true" %>
     <% @movies.where(series: true).each do |movie| %>
       <div class="card-trip m-3">
-  <%= link_to toggle_bookmark_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "bookmark", action: "click->favorites#toggleBookmarkButton"}, class: "bookmark #{@user.favorited?(movie, scope: "Bookmarks") ? 'bookmark-orange' : ''}" do %>
+  <%= link_to toggle_bookmark_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "bookmark", action: "click->favorites#toggleBookmarkButton"}, class: "bookmark #{@user&.favorited?(movie, scope: "Bookmarks") ? 'bookmark-orange' : ''}" do %>
     <i  class="fa-solid fa-bookmark"></i>
   <% end %>
-  <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites#toggleHeartButton"},class: "heart #{@user.favorited?(movie, scope: "Mis favoritas") ? 'heart-red' : ''}" do %>
+  <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites#toggleHeartButton"},class: "heart #{@user&.favorited?(movie, scope: "Mis favoritas") ? 'heart-red' : ''}" do %>
     <i  class="fa-solid fa-heart"></i>
   <% end %>
   <%= link_to movie, class: 'clear-link' do %>
@@ -56,10 +56,10 @@
   <% elsif params[:pelicula] == "true" %>
     <% @movies.where(series: false).order(title: :desc).each do |movie| %>
       <div class="card-trip m-3">
-  <%= link_to toggle_bookmark_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "bookmark", action: "click->favorites#toggleBookmarkButton"}, class: "bookmark #{@user.favorited?(movie, scope: "Bookmarks") ? 'bookmark-orange' : ''}" do %>
+  <%= link_to toggle_bookmark_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "bookmark", action: "click->favorites#toggleBookmarkButton"}, class: "bookmark #{@user&.favorited?(movie, scope: "Bookmarks") ? 'bookmark-orange' : ''}" do %>
     <i  class="fa-solid fa-bookmark"></i>
   <% end %>
-  <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites#toggleHeartButton"},class: "heart #{@user.favorited?(movie, scope: "Mis favoritas") ? 'heart-red' : ''}" do %>
+  <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites#toggleHeartButton"},class: "heart #{@user&.favorited?(movie, scope: "Mis favoritas") ? 'heart-red' : ''}" do %>
     <i  class="fa-solid fa-heart"></i>
   <% end %>
   <%= link_to movie, class: 'clear-link' do %>
@@ -80,10 +80,10 @@
   <% else %>
     <% @movies.each do |movie| %>
       <div class="card-trip m-3">
-        <%= link_to toggle_bookmark_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "bookmark", action: "click->favorites#toggleBookmarkButton"}, class: "bookmark #{@user.favorited?(movie, scope: "Bookmarks") ? 'bookmark-orange' : ''}" do %>
+        <%= link_to toggle_bookmark_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "bookmark", action: "click->favorites#toggleBookmarkButton"}, class: "bookmark #{@user&.favorited?(movie, scope: "Bookmarks") ? 'bookmark-orange' : ''}" do %>
           <i  class="fa-solid fa-bookmark"></i>
         <% end %>
-        <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites#toggleHeartButton"},class: "heart #{@user.favorited?(movie, scope: "Mis favoritas") ? 'heart-red' : ''}" do %>
+        <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites#toggleHeartButton"},class: "heart #{@user&.favorited?(movie, scope: "Mis favoritas") ? 'heart-red' : ''}" do %>
           <i  class="fa-solid fa-heart"></i>
         <% end %>
         <%= link_to movie, class: 'clear-link' do %>
