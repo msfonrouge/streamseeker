@@ -78,21 +78,21 @@
   <% else %>
     <% @movies.each do |movie| %>
       <div class="card-trip m-3">
-  <%= link_to toggle_bookmark_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "bookmark", action: "click->favorites#toggleBookmarkButton"}, class: "bookmark #{'bookmark-orange' if @user.favorited?(movie, scope: "Bookmarks")}" do %>
-    <i  class="fa-solid fa-bookmark"></i>
-  <% end %>
-  <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites#toggleHeartButton"},class: "heart #{'heart-red' if @user.favorited?(movie, scope: "Mis favoritas")}" do %>
-    <i  class="fa-solid fa-heart"></i>
-  <% end %>
-  <%= link_to movie, class: 'clear-link' do %>
-    <% if movie.photo.attached? %>
-      <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
-    <% end %>
-    <div class="card-trip-infos col">
-      <div>
-        <h2><%= movie.title %></h2>
-        <p><%= movie.year %></p>
-      </div>
+        <%= link_to toggle_bookmark_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "bookmark", action: "click->favorites#toggleBookmarkButton"}, class: "bookmark #{@user.favorited?(movie, scope: "Bookmarks") ? 'bookmark-orange' : ''}" do %>
+          <i  class="fa-solid fa-bookmark"></i>
+        <% end %>
+        <%= link_to toggle_favorite_movie_path(movie), data: { controller: "favorites",'turbo-method' => :post, 'favorites-target' => "heart", action: "click->favorites#toggleHeartButton"},class: "heart #{@user.favorited?(movie, scope: "Mis favoritas") ? 'heart-red' : ''}" do %>
+          <i  class="fa-solid fa-heart"></i>
+        <% end %>
+        <%= link_to movie, class: 'clear-link' do %>
+        <% if movie.photo.attached? %>
+          <%= cl_image_tag movie.photo.key, height: 300, width: 200, crop: :scale, class:"card-img-top"%>
+        <% end %>
+        <div class="card-trip-infos col">
+        <div>
+          <h2><%= movie.title %></h2>
+          <p><%= movie.year %></p>
+        </div>
     </div>
 
         <% end %>
