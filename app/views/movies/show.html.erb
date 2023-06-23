@@ -17,19 +17,19 @@
       <% end %>
 
       <% if @movie.platform.include?("Netflix") %>
-       <a href="http://netflix.com"><%= image_tag "netflix2.png", id: "logo-default"%></a>
+       <a target=”_blank” href="http://netflix.com"><%= image_tag "netflix2.png", id: "logo-default"%></a>
       <% end %>
       <% if @movie.platform.include?("Amazon") %>
-        <a href="http://primevideo.com"><%= image_tag "prime.png", id: "logo-default"%></a>
+        <a target=”_blank” href="http://primevideo.com"><%= image_tag "prime.png", id: "logo-default"%></a>
       <% end %>
       <% if @movie.platform.include?("Disney") %>
-       <a href="http://disneyplus.com"><%= image_tag "disneyplus.png", id: "logo-default"%></a>
+       <a target=”_blank” href="http://disneyplus.com"><%= image_tag "disneyplus.png", id: "logo-default"%></a>
       <% end %>
       <% if @movie.platform.include?("HBO") %>
-       <a href="http://hbomax.com"><%= image_tag "hbo4.png", id: "logo-default"%></a>
+       <a target=”_blank” href="http://hbomax.com"><%= image_tag "hbo4.png", id: "logo-default"%></a>
       <% end %>
       <% if @movie.platform.include?("Show") %>
-       <a href="http://sho.com"><%= image_tag "show.png", id: "logo-default"%></a>
+       <a target=”_blank” href="http://sho.com"><%= image_tag "show.png", id: "logo-default"%></a>
       <% end %>
     </div>
   </div>

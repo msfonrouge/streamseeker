@@ -5,11 +5,11 @@
       <h2><%= @watchlist.title %></h2>
       <div class="review-actions">
         <%= link_to edit_watchlist_path(@watchlist), class: "default1_button", data: { turbo_action: "advance", turbo_frame: "_top"} do %>
-          <i class="fas fa-pencil-alt text-black"></i>
-        <% end %>
+          <i class="fa-regular fa-plus text-black"></i>
+        <% end %>&nbsp
         <%= link_to watchlist_path(@watchlist), class: "default1_button", data: {turbo_method: :delete, turbo_confirm: "¿Está seguro de que quiere borrar esta lista?", turbo_action: "advance", turbo_frame: "_top"} do %>
           <i class= "far fa-trash-alt text-black"></i>
-        <% end %>
+        <% end %>&nbsp
       <%= link_to "Atras", watchlists_path, class: "default1_button", data: { turbo_action: "advance", turbo_frame: "_top"}%>
       </div>
     <% end %>
